@@ -33,10 +33,10 @@ const items = [
   {
     id: 4,
     color: "from-purple-300 to-red-300",
-    title: "Spotify Music App",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    title: "Spotify CSS Clone",
+    desc: "Created a Spotify-inspired clone using HTML and CSS. Designed and implemented user interface components, showcasing skills in front-end web development and responsive design.",
     img: "https://images.pexels.com/photos/18540208/pexels-photo-18540208/free-photo-of-wood-landscape-water-hill.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    link: "",
+    link: "https://alpranjal28.github.io/spotify-clone/",
   },
 ];
 
