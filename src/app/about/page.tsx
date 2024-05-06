@@ -133,6 +133,9 @@ const AboutPage = () => {
               <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
                 Git
               </div>
+              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
+                GitHub
+              </div>
             </motion.div>
             {/* SKILL SCROLL SVG */}
             <motion.svg
@@ -187,7 +190,7 @@ const AboutPage = () => {
                 <div className=" w-1/3">
                   {/* JOB TITLE */}
                   <div className="bg-white p-3 font-semibold rounded-s-lg rounded-b-lg">
-                    Delta 2.0 by Apna College
+                    Building projects
                   </div>
                   {/* JOB DESCRIPTION */}
                   <div className="p-3 text-sm italic">
@@ -195,7 +198,7 @@ const AboutPage = () => {
                   </div>
                   {/* JOB DATE */}
                   <div className="p-3 text-red-600 text-sm font-semibold">
-                    2022 - Present
+                    2023 - Present
                   </div>
                   {/* JOB LOCATION */}
                   <div className="p-3 w-fit rounded bg-white text-sm font-semibold">
