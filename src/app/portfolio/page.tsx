@@ -69,19 +69,27 @@ const PortfolioPage = () => {
                   <h1 className=" text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl">
                     {item.title}
                   </h1>
-                  <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
-                    <Image src={item.img} alt={item.title} fill />
+                  
+                  <div className="lg:grid lg:grid-cols-2">
+                    <div className="">
+                      <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
+                        <Image src={item.img} alt={item.title} fill />
+                      </div>
+                    </div>
+                    <div className="py-8 lg:px-8">
+                      <p className="w-80  md:w-96 lg:w-[500px] lg:text-lg  xl:w-[600px]">
+                        {item.desc}
+                      </p>
+                      <div className="flex justify-end lg:justify-start ">
+                        <Link href={item.link}>
+                          <button className="p-2 lg:ml-0 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-500 font-semibold m-4 rounded">
+                            Visit Project
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                  <p className="w-80 md:w-96 lg:w-[500px] lg:text-lg  xl:w-[600px]">
-                    {item.desc}
-                  </p>
-                  <div className="flex justify-end">
-                    <Link href={item.link}>
-                      <button className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-500 font-semibold m-4 rounded">
-                        Visit Project
-                      </button>
-                    </Link>
-                  </div>
+
                 </div>
               </div>
             ))}
