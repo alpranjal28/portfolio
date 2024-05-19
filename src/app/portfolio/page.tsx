@@ -81,7 +81,7 @@ const PortfolioPage = () => {
                         {item.desc}
                       </p>
                       <div className="flex justify-end lg:justify-start ">
-                        <Link href={item.link}>
+                        <Link href={item.link} target="_blank">
                           <button className="p-2 lg:ml-0 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-500 font-semibold m-4 rounded">
                             Visit Project
                           </button>
