@@ -25,10 +25,10 @@ const items = [
   {
     id: 3,
     color: "from-violet-300 to-purple-300",
-    title: "Spotify CSS Clone",
-    desc: "Developed my first project—a Spotify-inspired clone—using raw HTML and CSS. Designed and implemented user interface components from scratch, demonstrating foundational skills in front-end web development and design.",
-    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1714991241/projects/spotifyclone_ujkoky.png",
-    link: "https://alpranjal28.github.io/spotify-clone/",
+    title: "Car Showcase App",
+    desc: "Developed a comprehensive car deals website using Next.js, Tailwind CSS, and various APIs. The site features real-time data updates and a responsive design, providing an optimal user experience for browsing and managing car listings.",
+    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1719927625/projects/car-deals.png",
+    link: "https://car-deals-ruddy.vercel.app/",
   },
   {
     id: 4,
