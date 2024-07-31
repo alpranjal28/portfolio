@@ -73,12 +73,15 @@ const Navbar = () => {
 
   return (
     <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
+      {/* //////////DESKTOP///////// */}
+
       {/* LINKS */}
       <div className="hidden md:flex gap-4 w-1/3">
         {links.map((link) => (
           <NavLink link={link} key={link.title} />
         ))}
       </div>
+
       {/* LOGO */}
       <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
         <Link
@@ -91,16 +94,32 @@ const Navbar = () => {
           </span>
         </Link>
       </div>
+
       {/* SOCIAL */}
-      <div className="hidden md:flex justify-end gap-4 w-1/3">
-        <Link href={"https://github.com/alpranjal28"}>
+      <div className="hidden md:flex justify-end gap-4 w-1/3 items-center container">
+        <Link href={"https://github.com/alpranjal28"} target="_blank">
           <Image src="/github-mark.png" alt="github" width={32} height={32} />
         </Link>
-        <Link href={"https://www.linkedin.com/in/pranjal-altherius-lakra/"}>
+        <Link
+          href={"https://www.linkedin.com/in/pranjal-altherius-lakra/"}
+          target="_blank"
+        >
           <Image src="/linkedin.png" alt="linkedin" width={32} height={32} />
         </Link>
+        <Link
+          href={
+            "https://mail.google.com/mail/u/0/?fs=1&to=alpranjal28@gmail.com&tf=cm"
+          }
+          target="_blank"
+        >
+          <Image src="/email2.png" alt="email" width={32} height={32} />
+        </Link>
       </div>
+
+      {/* //////////MOBILE///////// */}
+
       {/* RESPONSIVE MENU */}
+
       <div className="md:hidden z-50">
         {/* MENU BUTTON */}
         <button
@@ -123,6 +142,7 @@ const Navbar = () => {
             className="w-10 h-1 bg-black rounded origin-left"
           ></motion.div>
         </button>
+
         {/* MENU LIST */}
         {open && (
           <motion.div
@@ -142,9 +162,9 @@ const Navbar = () => {
             ))}
             <motion.div
               variants={listItemVariants}
-              className=" flex flex-row space-x-4 "
+              className=" flex flex-row space-x-4 items-center"
             >
-              <Link href={"https://github.com/alpranjal28"}>
+              <Link href={"https://github.com/alpranjal28"} target="_blank">
                 <Image
                   src="/github-mark-white.png"
                   alt="github"
@@ -154,6 +174,7 @@ const Navbar = () => {
               </Link>
               <Link
                 href={"https://www.linkedin.com/in/pranjal-altherius-lakra/"}
+                target="_blank"
               >
                 <Image
                   src="/linkedin-blue.png"
@@ -161,6 +182,14 @@ const Navbar = () => {
                   width={32}
                   height={32}
                 />
+              </Link>
+              <Link
+                href={
+                  "https://mail.google.com/mail/u/0/?fs=1&to=alpranjal28@gmail.com&tf=cm"
+                }
+                target="_blank"
+              >
+                <Image src="/email1.png" alt="email" width={36} height={36} />
               </Link>
             </motion.div>
           </motion.div>
