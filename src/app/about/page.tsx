@@ -1,6 +1,7 @@
 "use client";
 
 import Brain from "@/components/brain";
+import { skills } from "@/constants";
 import { motion, useInView, useScroll } from "framer-motion";
 import { useRef } from "react";
 
@@ -97,45 +98,14 @@ const AboutPage = () => {
               // transition={{ delay: 0.2, duration: 0.5 }}
               className="flex flex-wrap gap-4"
             >
-              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
-                JavaScript
-              </div>
-              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
-                TypeScript
-              </div>
-              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
-                MongoDB
-              </div>
-              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
-                Express
-              </div>
-              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
-                React.js
-              </div>
-              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
-                Node.js
-              </div>
-              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
-                Next.js
-              </div>
-              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
-                HTML
-              </div>
-              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
-                CSS
-              </div>
-              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
-                Tailwind
-              </div>
-              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
-                MySQL
-              </div>
-              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
-                Git
-              </div>
-              <div className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white">
-                GitHub
-              </div>
+              {skills.map((skill) => (
+                <div
+                  key={skill.title}
+                  className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white"
+                >
+                  {skill.title}
+                </div>
+              ))}
             </motion.div>
             {/* SKILL SCROLL SVG */}
             <motion.svg

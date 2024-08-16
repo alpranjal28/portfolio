@@ -13,7 +13,7 @@ export default function Homepage() {
     >
       <div className="flex flex-col lg:flex-row h-full px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* IMAGE CONTAINER */}
-        <div className="lg:h-full lg:w-1/2 relative">
+        <div className="lg:h-full lg:w-1/2 flex items-center justify-center">
           <Image
             src={"/hero.png"}
             alt="image"
