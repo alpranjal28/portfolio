@@ -20,6 +20,10 @@ export const skills = [
     type: "framework",
   },
   {
+    title: "Shadcn",
+    type: "framework",
+  },
+  {
     title: "NextJS",
     type: "framework",
   },
@@ -36,16 +40,24 @@ export const skills = [
     type: "framework",
   },
   {
-    title: "Amazon S3",
-    type: "cloud",
+    title: "AWS S3",
+    type: "tools",
+  },
+  {
+    title: "AWS EC2",
+    type: "tools",
+  },
+  {
+    title: "AWS RDS",
+    type: "tools",
   },
   {
     title: "Appwrite",
-    type: "cloud",
+    type: "tools",
   },
   {
     title: "Cloudinary",
-    type: "cloud",
+    type: "tools",
   },
   {
     title: "MongoDB",
@@ -54,6 +66,26 @@ export const skills = [
   {
     title: "MySQL",
     type: "database",
+  },
+  {
+    title: "Prisma",
+    type: "database",
+  },
+  {
+    title: "BootStrap",
+    type: "library",
+  },
+  {
+    title: "Framer-Motion",
+    type: "library",
+  },
+  {
+    title: "Material-UI",
+    type: "library",
+  },
+  {
+    title: "Radix-UI",
+    type: "library",
   },
   {
     title: "Git",
@@ -65,6 +97,10 @@ export const skills = [
   },
   {
     title: "twilio",
+    type: "other",
+  },
+  {
+    title: "Linux",
     type: "other",
   },
 ];
