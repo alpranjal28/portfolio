@@ -16,6 +16,10 @@ export const skills = [
     type: "language",
   },
   {
+    title: "Docker",
+    type: "containerization",
+  },
+  {
     title: "React",
     type: "framework",
   },
@@ -33,11 +37,19 @@ export const skills = [
   },
   {
     title: "Node.js",
-    type: "framework",
+    type: "Runtime",
+  },
+  {
+    title: "Bun",
+    type: "Runtime",
   },
   {
     title: "Tailwind",
     type: "framework",
+  },
+  {
+    title: "WebSocket",
+    type: "real-time communication",
   },
   {
     title: "AWS S3",
@@ -60,6 +72,10 @@ export const skills = [
     type: "tools",
   },
   {
+    title: "PostgreSQL",
+    type: "database",
+  },
+  {
     title: "MongoDB",
     type: "database",
   },
@@ -68,7 +84,7 @@ export const skills = [
     type: "database",
   },
   {
-    title: "Prisma",
+    title: "Prisma ORM",
     type: "database",
   },
   {
@@ -103,23 +119,27 @@ export const skills = [
     title: "Linux",
     type: "other",
   },
+  {
+    title: "TurboRepo",
+    type: "other",
+  },
 ];
 
 export const socials = [
   {
     title: "GitHub",
     url: "https://github.com/alpranjal28",
-		alt:"github"
+    alt: "github",
   },
   {
     title: "LinkedIn",
     url: "https://www.linkedin.com/in/pranjal-altherius-lakra/",
-		alt:"linkedin"
+    alt: "linkedin",
   },
   {
     title: "Email",
     url: "https://mail.google.com/mail/u/0/?fs=1&to=alpranjal28@gmail.com&tf=cm",
-		alt:"email"
+    alt: "email",
   },
   // {
   //   title: "Twitter",
