@@ -1,6 +1,6 @@
-"use client";
-
+"use client"
 import { motion, useScroll, useTransform } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
@@ -42,24 +42,32 @@ const items = [
 
 const PortfolioPage = () => {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ container: ref });
+  const { scrollYProgress } = useScroll({ target: ref });
 
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
 
   return (
     <motion.div
-      className="  h-full"
+      className="h-full"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 0.5 }}
     >
-      <div className="h-[600vh] relative">
-        <div className=" w-screen h-[calc(100vh-6rem)] flex justify-center items-center text-8xl text-center">
+      <div ref={ref} className="h-[600vh] relative">
+        <div className="relative w-screen h-[calc(90vh-6rem)] flex justify-center items-center text-8xl text-center">
           My Works
+          <ChevronDown
+            size={64}
+            color="gray"
+            className="animate-bounce absolute -bottom-10 z-10"
+          />
         </div>
+
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
           <motion.div style={{ x }} className="flex">
-            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300" />
+            {/* start buffer */}
+            <div className="h-screen w-[80vw] flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300"></div>
+            {/* projects */}
             {items.map((item) => (
               <div
                 className={` p-4 h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}`}
@@ -69,7 +77,7 @@ const PortfolioPage = () => {
                   <h1 className=" text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl">
                     {item.title}
                   </h1>
-                  
+
                   <div className="lg:grid lg:grid-cols-2">
                     <div className="">
                       <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
@@ -89,16 +97,22 @@ const PortfolioPage = () => {
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             ))}
-            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-red-300 to-blue-300" />
+            {/* end buffer */}
+            <div className="relative h-screen w-[80vw] flex items-center justify-center bg-gradient-to-r from-red-300 to-blue-300">
+              <button className="p-2 lg:ml-0 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-500 font-semibold m-4 rounded">
+                Github{" "}
+              </button>
+            </div>
           </motion.div>
         </div>
       </div>
 
-      <div className=" w-screen h-screen flex flex-col gap-16 items-center justify-center text-center">
+      <div className="relative w-screen h-[90vh] flex flex-col gap-16 items-center justify-center text-center">
+        <ChevronDown size={64} color="gray" className="absolute -top-20 animate-bounce" />
+
         <h1 className="text-8xl">Do you have a project?</h1>
         <div className="relative">
           {/* SVG */}
@@ -106,7 +120,7 @@ const PortfolioPage = () => {
             animate={{ rotate: 360 }}
             transition={{ duration: 8, ease: "linear", repeat: Infinity }}
             viewBox="0 0 300 300"
-            className="w-64 h-64 md:w-[500px] md:h-[500px] "
+            className="w-64 h-64 md:w-[400px] md:h-[400px] "
           >
             <defs>
               <path
@@ -116,7 +130,7 @@ const PortfolioPage = () => {
             </defs>
             <text fill="#000">
               <textPath xlinkHref="#circlePath" className="text-xl">
-                Full-stack Developer , MERN , Next.js ||
+                Full-stack, Typescript, MERN, Next.js,
               </textPath>
             </text>
           </motion.svg>
