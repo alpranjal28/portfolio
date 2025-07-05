@@ -1,9 +1,19 @@
-"use client"
+"use client";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Target } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+
+// Define the type for a portfolio item
+interface PortfolioItem {
+  id: number;
+  color: string;
+  title: string;
+  desc: string;
+  img: string;
+  link: string;
+}
 
 const items = [
   {
@@ -46,100 +56,133 @@ const PortfolioPage = () => {
 
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
 
+  // Add state for modal/expanded view
+  const [selected, setSelected] = useState<PortfolioItem | null>(null);
+
   return (
     <motion.div
       className="h-full"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 0.5 }}
+      ref={ref}
     >
-      <div ref={ref} className="h-[600vh] relative">
-        <div className="relative w-screen h-[calc(90vh-6rem)] flex justify-center items-center text-8xl text-center">
-          My Works
-          <ChevronDown
-            size={64}
-            color="gray"
-            className="animate-bounce absolute -bottom-10 z-10"
-          />
+      {/* container */}
+      <div
+        className="relative h-full overflow-y-scroll lg:flex flex-col scrollbar-hide"
+        ref={ref}
+      >
+        {/* <div ref={ref} className="h-[600vh] relative"> */}
+        <div className="min-h-[60vh] flex justify-center items-center">
+          <h1 className="text-8xl text-center">My Works</h1>
         </div>
 
-        <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
-          <motion.div style={{ x }} className="flex">
-            {/* start buffer */}
-            <div className="h-screen w-[80vw] flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300"></div>
-            {/* projects */}
-            {items.map((item) => (
-              <div
-                className={` p-4 h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}`}
-                key={item.id}
-              >
-                <div className="flex flex-col gap-8 text-white">
-                  <h1 className=" text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl">
-                    {item.title}
-                  </h1>
-
-                  <div className="lg:grid lg:grid-cols-2">
-                    <div className="">
-                      <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
-                        <Image src={item.img} alt={item.title} fill />
-                      </div>
-                    </div>
-                    <div className="py-8 lg:px-8">
-                      <p className="w-80  md:w-96 lg:w-[500px] lg:text-lg  xl:w-[600px]">
-                        {item.desc}
-                      </p>
-                      <div className="flex justify-end lg:justify-start ">
-                        <Link href={item.link} target="_blank">
-                          <button className="p-2 lg:ml-0 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-500 font-semibold m-4 rounded">
-                            Visit Project
-                          </button>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        {/* Modal/Expanded View: Clicking a card expands it into a modal with more details */}
+        <div className="relative h-auto flex flex-wrap justify-center gap-8 p-4">
+          {items.map((item) => (
+            <motion.div
+              key={item.id}
+              className={`relative w-80 h-96 bg-gradient-to-r ${item.color} rounded-xl shadow-lg flex flex-col items-center justify-center cursor-pointer`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setSelected(item)}
+            >
+              <h2 className="text-2xl font-bold text-white mb-2 text-center">
+                {item.title}
+              </h2>
+              <div className="relative w-64 h-40 mb-4">
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  fill
+                  className="rounded-lg object-cover"
+                />
               </div>
-            ))}
-            {/* end buffer */}
-            <div className="relative h-screen w-[80vw] flex items-center justify-center bg-gradient-to-r from-red-300 to-blue-300">
-              <button className="p-2 lg:ml-0 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-500 font-semibold m-4 rounded">
-                Github{" "}
+              <p className="text-white text-sm text-center px-2 line-clamp-3">
+                {item.desc}
+              </p>
+              <button className="mt-4 px-4 py-2 bg-white text-gray-700 rounded font-semibold">
+                View
               </button>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
+
+          {/* Modal */}
+          {selected && (
+            <motion.div
+              className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelected(null)}
+            >
+              <motion.div
+                className="bg-white rounded-xl p-8 max-w-lg w-full relative"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  className="absolute top-2 right-2 text-gray-500"
+                  onClick={() => setSelected(null)}
+                >
+                  ×
+                </button>
+                <h2 className="text-3xl font-bold mb-4">{selected.title}</h2>
+                <div className="relative w-full h-56 mb-4">
+                  <Image
+                    src={selected.img}
+                    alt={selected.title}
+                    fill
+                    className="rounded-lg object-cover"
+                  />
+                </div>
+                <p className="mb-4 text-gray-700">{selected.desc}</p>
+                <Link href={selected.link} target="_blank">
+                  <button className="px-6 py-2 bg-black text-white rounded font-semibold">
+                    Visit Project
+                  </button>
+                </Link>
+              </motion.div>
+            </motion.div>
+          )}
         </div>
-      </div>
 
-      <div className="relative w-screen h-[90vh] flex flex-col gap-16 items-center justify-center text-center">
-        <ChevronDown size={64} color="gray" className="absolute -top-20 animate-bounce" />
-
-        <h1 className="text-8xl">Do you have a project?</h1>
-        <div className="relative">
-          {/* SVG */}
-          <motion.svg
-            animate={{ rotate: 360 }}
-            transition={{ duration: 8, ease: "linear", repeat: Infinity }}
-            viewBox="0 0 300 300"
-            className="w-64 h-64 md:w-[400px] md:h-[400px] "
-          >
-            <defs>
-              <path
-                id="circlePath"
-                d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "
-              />
-            </defs>
-            <text fill="#000">
-              <textPath xlinkHref="#circlePath" className="text-xl">
-                Full-stack, Typescript, MERN, Next.js,
-              </textPath>
-            </text>
-          </motion.svg>
-          <Link
-            href="/contact"
-            className="w-16 h-16 md:h-28 md:w-28 absolute top-0 left-0 right-0 bottom-0 m-auto bg-black text-white rounded-full flex items-center justify-center"
-          >
-            Hire Me
-          </Link>
+        {/* footer */}
+        <div className="relative w-full h-[100vh] mt-16 flex flex-col items-center justify-center text-center">
+          <h2 className="text-6xl">Do you have a project ?</h2>
+          <div className="relative">
+            {/* SVG */}
+            <motion.svg
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 8,
+                ease: "linear",
+                repeat: Infinity,
+              }}
+              viewBox="0 0 300 300"
+              className="w-64 h-64 md:w-[400px] md:h-[400px] "
+            >
+              <defs>
+                <path
+                  id="circlePath"
+                  d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "
+                />
+              </defs>
+              <text fill="#000">
+                <textPath xlinkHref="#circlePath" className="text-xl">
+                  Full-stack, Typescript, MERN, Next.js,
+                </textPath>
+              </text>
+            </motion.svg>
+            <Link
+              href="/contact"
+              className="w-16 h-16 md:h-28 md:w-28 absolute top-0 left-0 right-0 bottom-0 m-auto bg-black text-white rounded-full flex items-center justify-center"
+            >
+              Hire Me
+            </Link>
+          </div>
         </div>
       </div>
     </motion.div>
