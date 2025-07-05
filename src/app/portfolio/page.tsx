@@ -16,10 +16,10 @@ interface PortfolioItem {
 
 const items: PortfolioItem[] = [
   {
-    color: "from-violet-300 to-purple-300",
-    title: "Portfolio 2",
-    desc: "This portfolio uses Next.js, React, and TypeScript for a performant, SEO-friendly SPA. Tailwind CSS powers the responsive UI. Features include animated components (Framer Motion), a 3D globe (Three.js), parallax effects, and Sentry integration for error monitoring.",
-    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1751717662/projects/Screenshot_2025-07-05_174402_vvxndk.png",
+    color: "from-blue-300 to-violet-300",
+    title: "MS Draw",
+    desc: "This project is a collaborative MS Paint clone built with a Turbo monorepo. It features a Next.js frontend, Express and WebSocket backends, and a PostgreSQL database managed via Prisma ORM. Real-time drawing sync is achieved using WebSockets, with scalable, modular code structure.",
+    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1751719298/projects/Screenshot_2025-07-05_181119_s60woh.png",
     link: "https://portfolio-refresh-five.vercel.app/",
   },
   {
