@@ -85,7 +85,7 @@ const PortfolioPage = () => {
     >
       {/* container */}
       <div
-        className="relative h-full overflow-y-scroll lg:flex flex-col scrollbar-hide"
+        className="relative h-full overflow-y-scroll lg:flex flex-col select-none scrollbar-hide"
         ref={ref}
       >
         {/* <div ref={ref} className="h-[600vh] relative"> */}
