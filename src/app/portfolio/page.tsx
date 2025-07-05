@@ -1,4 +1,5 @@
 "use client";
+import { Close } from "@/components/icons";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, Target } from "lucide-react";
 import Image from "next/image";
@@ -7,7 +8,6 @@ import { useRef, useState } from "react";
 
 // Define the type for a portfolio item
 interface PortfolioItem {
-  id: number;
   color: string;
   title: string;
   desc: string;
@@ -15,9 +15,29 @@ interface PortfolioItem {
   link: string;
 }
 
-const items = [
+const items: PortfolioItem[] = [
   {
-    id: 1,
+    color: "from-violet-300 to-purple-300",
+    title: "Portfolio 2",
+    desc: "This portfolio uses Next.js, React, and TypeScript for a performant, SEO-friendly SPA. Tailwind CSS powers the responsive UI. Features include animated components (Framer Motion), a 3D globe (Three.js), parallax effects, and Sentry integration for error monitoring.",
+    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1751717662/projects/Screenshot_2025-07-05_174402_vvxndk.png",
+    link: "https://portfolio-refresh-five.vercel.app/",
+  },
+  {
+    color: "from-violet-300 to-purple-300",
+    title: "Portfolio 2",
+    desc: "This portfolio uses Next.js, React, and TypeScript for a performant, SEO-friendly SPA. Tailwind CSS powers the responsive UI. Features include animated components (Framer Motion), a 3D globe (Three.js), parallax effects, and Sentry integration for error monitoring.",
+    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1751717662/projects/Screenshot_2025-07-05_174402_vvxndk.png",
+    link: "https://portfolio-refresh-five.vercel.app/",
+  },
+  {
+    color: "from-purple-300 to-red-300",
+    title: "Multistep Form",
+    desc: "A modern React/Next.js application featuring a centered, card-style form UI built with Tailwind CSS. The project uses modular components for maintainability and Lucide icons for visual clarity. The main page displays a shadowed, rounded form container with a close icon and integrates custom form logic, providing a clean, interactive user experience.",
+    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1751716050/projects/Screenshot_2025-07-05_171620_igtasa.png",
+    link: "https://nablasol-xi.vercel.app/",
+  },
+  {
     color: "from-red-300 to-blue-300",
     title: "Airbnb clone",
     desc: "Engineered a feature-rich Airbnb clone, leveraging HTML, CSS, JavaScript, MongoDB, Node.js, and Express with MVC architecture, showcasing adeptness in full-stack development, database integration, and system design.",
@@ -25,7 +45,6 @@ const items = [
     link: "https://airlust-project.onrender.com/listings",
   },
   {
-    id: 2,
     color: "from-blue-300 to-violet-300",
     title: "Food Ordering App",
     desc: "Built a dynamic food ordering application with Next.js, MongoDB, Tailwind CSS, Amazon S3, and Google Authentication. Features include user authentication, menu browsing, cart management, and order processing. Demonstrated proficiency in full-stack development, RESTful API integration, and deployment.",
@@ -33,7 +52,6 @@ const items = [
     link: "https://food-app-sable.vercel.app/",
   },
   {
-    id: 3,
     color: "from-violet-300 to-purple-300",
     title: "Car Showcase App",
     desc: "Developed a comprehensive car deals website using Next.js, Tailwind CSS, and various APIs. The site features real-time data updates and a responsive design, providing an optimal user experience for browsing and managing car listings.",
@@ -41,7 +59,6 @@ const items = [
     link: "https://car-deals-ruddy.vercel.app/",
   },
   {
-    id: 4,
     color: "from-purple-300 to-red-300",
     title: "Spotify CSS Clone",
     desc: "Developed my first project—a Spotify-inspired clone—using raw HTML and CSS. Designed and implemented user interface components from scratch, demonstrating foundational skills in front-end web development and design.",
@@ -79,9 +96,9 @@ const PortfolioPage = () => {
 
         {/* Modal/Expanded View: Clicking a card expands it into a modal with more details */}
         <div className="relative h-auto flex flex-wrap justify-center gap-8 p-4">
-          {items.map((item) => (
+          {items.map((item, index) => (
             <motion.div
-              key={item.id}
+              key={index}
               className={`relative w-80 h-96 bg-gradient-to-r ${item.color} rounded-xl shadow-lg flex flex-col items-center justify-center cursor-pointer`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
@@ -127,7 +144,9 @@ const PortfolioPage = () => {
                   className="absolute top-2 right-2 text-gray-500"
                   onClick={() => setSelected(null)}
                 >
-                  ×
+                  <div className="hover:bg-gray-300 p-2 rounded-md">
+                    <Close color="white" />
+                  </div>
                 </button>
                 <h2 className="text-3xl font-bold mb-4">{selected.title}</h2>
                 <div className="relative w-full h-56 mb-4">

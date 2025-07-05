@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import NavLink from "./navLink";
 import { motion } from "framer-motion";
-import { Email, Github, Linkedin, Phone } from "./icons";
+import { Email, Github, Linkedin} from "./icons";
 import { toast, ToastContainer, Bounce } from "react-toastify";
 
 const links = [
@@ -120,7 +120,7 @@ const Navbar = () => {
             notify("Email copied");
           }}
         >
-          <Phone color="white" />
+          <Email color="white" />
         </button>
       </div>
 
