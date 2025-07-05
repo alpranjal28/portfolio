@@ -1,7 +1,6 @@
 "use client";
 import { Close } from "@/components/icons";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, Target } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
