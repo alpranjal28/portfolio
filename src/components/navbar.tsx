@@ -3,7 +3,8 @@ import Link from "next/link";
 import { useState } from "react";
 import NavLink from "./navLink";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { Email, Github, Linkedin, Phone } from "./icons";
+import { toast, ToastContainer, Bounce } from "react-toastify";
 
 const links = [
   { url: "/", title: "Home" },
@@ -18,13 +19,15 @@ const Navbar = () => {
     setOpen(!open);
   }
 
+  const notify = (content: string) => toast(content);
+
   const topVariants = {
     closed: {
       rotate: 0,
     },
     opened: {
       rotate: 45,
-      backgroundColor: "white",
+      backgroundColor: "rgb(255,255,255)",
     },
   };
 
@@ -43,7 +46,7 @@ const Navbar = () => {
     },
     opened: {
       rotate: -45,
-      backgroundColor: "white",
+      backgroundColor: "rgb(255,255,255)",
     },
   };
 
@@ -72,7 +75,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
+    <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl select-none">
       {/* //////////DESKTOP///////// */}
 
       {/* LINKS */}
@@ -97,27 +100,31 @@ const Navbar = () => {
 
       {/* SOCIAL */}
       <div className="hidden md:flex justify-end gap-4 w-1/3 items-center container">
-        <Link href={"https://github.com/alpranjal28"} target="_blank">
-          <Image src="/github-mark.png" alt="github" width={32} height={32} />
+        <Link href={"https://github.com/alpranjal28"} target="_blank" title="Visit Github">
+          <div className=""></div>
+          <Github color="white" />
         </Link>
         <Link
           href={"https://www.linkedin.com/in/pranjal-altherius-lakra/"}
           target="_blank"
+          title="Visit Linkedin"
         >
-          <Image src="/linkedin.png" alt="linkedin" width={32} height={32} />
+          <Linkedin color="white" />
         </Link>
-        <Link
-          href={
-            "https://mail.google.com/mail/u/0/?fs=1&to=alpranjal28@gmail.com&tf=cm"
-          }
-          target="_blank"
+        <button
+          type="button"
+          title="Copy Email"
+          className="bg-transparent border-0 p-0 m-0"
+          onClick={() => {
+            navigator.clipboard.writeText("alpranjal28@gmail.com");
+            notify("Email copied");
+          }}
         >
-          <Image src="/email2.png" alt="email" width={32} height={32} />
-        </Link>
+          <Phone color="white" />
+        </button>
       </div>
 
       {/* //////////MOBILE///////// */}
-
       {/* RESPONSIVE MENU */}
 
       <div className="md:hidden z-50">
@@ -164,33 +171,31 @@ const Navbar = () => {
               variants={listItemVariants}
               className=" flex flex-row space-x-4 items-center"
             >
-              <Link href={"https://github.com/alpranjal28"} target="_blank">
-                <Image
-                  src="/github-mark-white.png"
-                  alt="github"
-                  width={32}
-                  height={32}
-                />
+              <Link
+                href={"https://github.com/alpranjal28"}
+                target="_blank"
+                title="Visit Github"
+              >
+                <Github />
               </Link>
               <Link
                 href={"https://www.linkedin.com/in/pranjal-altherius-lakra/"}
                 target="_blank"
+                title="Visit LinkedIn"
               >
-                <Image
-                  src="/linkedin-blue.png"
-                  alt="linkedin"
-                  width={32}
-                  height={32}
-                />
+                <Linkedin />
               </Link>
-              <Link
-                href={
-                  "https://mail.google.com/mail/u/0/?fs=1&to=alpranjal28@gmail.com&tf=cm"
-                }
-                target="_blank"
+              <button
+                type="button"
+                title="Copy Email"
+                className="bg-transparent border-0 p-0 m-0"
+                onClick={() => {
+                  navigator.clipboard.writeText("+1234567890"); // replace with your phone number
+                  notify("Email copied");
+                }}
               >
-                <Image src="/email1.png" alt="email" width={36} height={36} />
-              </Link>
+                <Email color="white" />
+              </button>
             </motion.div>
           </motion.div>
         )}
