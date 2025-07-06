@@ -1,70 +1,9 @@
 "use client";
-import { Close } from "@/components/icons";
+import { PortfolioItem, projects } from "@/constants";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-
-// Define the type for a portfolio item
-interface PortfolioItem {
-  color: string;
-  title: string;
-  desc: string;
-  img: string;
-  link: string;
-}
-
-const items: PortfolioItem[] = [
-  {
-    color: "from-blue-300 to-violet-300",
-    title: "MS Draw",
-    desc: "This project is a collaborative MS Paint clone built with a Turbo monorepo. It features a Next.js frontend, Express and WebSocket backends, and a PostgreSQL database managed via Prisma ORM. Real-time drawing sync is achieved using WebSockets, with scalable, modular code structure.",
-    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1751719298/projects/Screenshot_2025-07-05_181119_s60woh.png",
-    link: "https://portfolio-refresh-five.vercel.app/",
-  },
-  {
-    color: "from-violet-300 to-purple-300",
-    title: "Portfolio 2",
-    desc: "This portfolio uses Next.js, React, and TypeScript for a performant, SEO-friendly SPA. Tailwind CSS powers the responsive UI. Features include animated components (Framer Motion), a 3D globe (Three.js), parallax effects, and Sentry integration for error monitoring.",
-    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1751717662/projects/Screenshot_2025-07-05_174402_vvxndk.png",
-    link: "https://portfolio-refresh-five.vercel.app/",
-  },
-  {
-    color: "from-purple-300 to-red-300",
-    title: "Multistep Form",
-    desc: "A modern React/Next.js application featuring a centered, card-style form UI built with Tailwind CSS. The project uses modular components for maintainability and Lucide icons for visual clarity. The main page displays a shadowed, rounded form container with a close icon and integrates custom form logic, providing a clean, interactive user experience.",
-    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1751716050/projects/Screenshot_2025-07-05_171620_igtasa.png",
-    link: "https://nablasol-xi.vercel.app/",
-  },
-  {
-    color: "from-red-300 to-blue-300",
-    title: "Airbnb clone",
-    desc: "Engineered a feature-rich Airbnb clone, leveraging HTML, CSS, JavaScript, MongoDB, Node.js, and Express with MVC architecture, showcasing adeptness in full-stack development, database integration, and system design.",
-    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1714991378/projects/airlust_new_p2idmx.png",
-    link: "https://airlust-project.onrender.com/listings",
-  },
-  {
-    color: "from-blue-300 to-violet-300",
-    title: "Food Ordering App",
-    desc: "Built a dynamic food ordering application with Next.js, MongoDB, Tailwind CSS, Amazon S3, and Google Authentication. Features include user authentication, menu browsing, cart management, and order processing. Demonstrated proficiency in full-stack development, RESTful API integration, and deployment.",
-    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1714972797/projects/food-app_fydlxj.png",
-    link: "https://food-app-sable.vercel.app/",
-  },
-  {
-    color: "from-violet-300 to-purple-300",
-    title: "Car Showcase App",
-    desc: "Developed a comprehensive car deals website using Next.js, Tailwind CSS, and various APIs. The site features real-time data updates and a responsive design, providing an optimal user experience for browsing and managing car listings.",
-    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1719927625/projects/car-deals.png",
-    link: "https://car-deals-ruddy.vercel.app/",
-  },
-  {
-    color: "from-purple-300 to-red-300",
-    title: "Spotify CSS Clone",
-    desc: "Developed my first project—a Spotify-inspired clone—using raw HTML and CSS. Designed and implemented user interface components from scratch, demonstrating foundational skills in front-end web development and design.",
-    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1714991241/projects/spotifyclone_ujkoky.png",
-    link: "https://alpranjal28.github.io/spotify-clone/",
-  },
-];
 
 const PortfolioPage = () => {
   const ref = useRef(null);
@@ -93,13 +32,13 @@ const PortfolioPage = () => {
           <h1 className="text-8xl text-center">My Works</h1>
         </div>
 
-        {items.map((item, index) => (
+        {projects.map((item, index) => (
           <div className="snap-start h-[calc(100vh-6rem)] m-2 md:m-8" key={index}>
             <div
               className={`h-[calc(100vh-8rem)] flex items-center justify-center bg-gradient-to-r rounded-xl ${item.color}`}
             >
               <div className="flex flex-col gap-8 text-white">
-                <h1 className=" text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl">
+                <h1 className="text-5xl font-bold lg:text-5xl xl:text-7xl">
                   {item.title}
                 </h1>
 
@@ -110,7 +49,7 @@ const PortfolioPage = () => {
                     </div>
                   </div>
                   <div className="py-8 lg:px-8">
-                    <p className="w-80  md:w-96 lg:w-[500px] lg:text-lg  xl:w-[600px]">
+                    <p className="text-wrap w-80 md:w-96 lg:w-[500px] lg:text-lg  xl:w-[600px] max-w-[600px]">
                       {item.desc}
                     </p>
                     <div className="flex justify-end lg:justify-start ">
@@ -127,7 +66,7 @@ const PortfolioPage = () => {
           </div>
         ))}
         {/* footer */}
-        <div className="relative w-full h-[100vh] mt-16 flex flex-col items-center justify-center text-center snap-start">
+        <div className="relative w-full min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center text-center snap-start">
           <h2 className="text-6xl">Do you have a project ?</h2>
           <div className="relative">
             {/* SVG */}
