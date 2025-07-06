@@ -85,90 +85,49 @@ const PortfolioPage = () => {
     >
       {/* container */}
       <div
-        className="relative h-full overflow-y-scroll lg:flex flex-col select-none scrollbar-hide"
+        className="relative h-full overflow-y-scroll lg:flex flex-col select-none scrollbar-hide snap-y snap-mandatory scroll-smooth"
         ref={ref}
       >
         {/* <div ref={ref} className="h-[600vh] relative"> */}
-        <div className="min-h-[60vh] flex justify-center items-center">
+        <div className="min-h-[60vh] flex justify-center items-center snap-start gap-4">
           <h1 className="text-8xl text-center">My Works</h1>
         </div>
 
-        {/* Modal/Expanded View: Clicking a card expands it into a modal with more details */}
-        <div className="relative h-auto flex flex-wrap justify-center gap-8 p-4">
-          {items.map((item, index) => (
-            <motion.div
-              key={index}
-              className={`relative w-80 h-96 bg-gradient-to-r ${item.color} rounded-xl shadow-lg flex flex-col items-center justify-center cursor-pointer`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={() => setSelected(item)}
+        {items.map((item, index) => (
+          <div className="snap-start h-[calc(100vh-6rem)] m-2 md:m-8" key={index}>
+            <div
+              className={`h-[calc(100vh-8rem)] flex items-center justify-center bg-gradient-to-r rounded-xl ${item.color}`}
             >
-              <h2 className="text-2xl font-bold text-white mb-2 text-center">
-                {item.title}
-              </h2>
-              <div className="relative w-64 h-40 mb-4">
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  fill
-                  className="rounded-lg object-cover"
-                />
-              </div>
-              <p className="text-white text-sm text-center px-2 line-clamp-3">
-                {item.desc}
-              </p>
-              <button className="mt-4 px-4 py-2 bg-white text-gray-700 rounded font-semibold">
-                View
-              </button>
-            </motion.div>
-          ))}
+              <div className="flex flex-col gap-8 text-white">
+                <h1 className=" text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl">
+                  {item.title}
+                </h1>
 
-          {/* Modal */}
-          {selected && (
-            <motion.div
-              className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelected(null)}
-            >
-              <motion.div
-                className="bg-white rounded-xl p-8 max-w-lg w-full relative"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <button
-                  className="absolute top-2 right-2 text-gray-500"
-                  onClick={() => setSelected(null)}
-                >
-                  <div className="hover:bg-gray-300 p-2 rounded-md">
-                    <Close color="white" />
+                <div className="lg:grid lg:grid-cols-2">
+                  <div className="">
+                    <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
+                      <Image src={item.img} alt={item.title} fill />
+                    </div>
                   </div>
-                </button>
-                <h2 className="text-3xl font-bold mb-4">{selected.title}</h2>
-                <div className="relative w-full h-56 mb-4">
-                  <Image
-                    src={selected.img}
-                    alt={selected.title}
-                    fill
-                    className="rounded-lg object-cover"
-                  />
+                  <div className="py-8 lg:px-8">
+                    <p className="w-80  md:w-96 lg:w-[500px] lg:text-lg  xl:w-[600px]">
+                      {item.desc}
+                    </p>
+                    <div className="flex justify-end lg:justify-start ">
+                      <Link href={item.link} target="_blank">
+                        <button className="p-2 lg:ml-0 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-500 font-semibold m-4 rounded">
+                          Visit Project
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-                <p className="mb-4 text-gray-700">{selected.desc}</p>
-                <Link href={selected.link} target="_blank">
-                  <button className="px-6 py-2 bg-black text-white rounded font-semibold">
-                    Visit Project
-                  </button>
-                </Link>
-              </motion.div>
-            </motion.div>
-          )}
-        </div>
-
+              </div>
+            </div>
+          </div>
+        ))}
         {/* footer */}
-        <div className="relative w-full h-[100vh] mt-16 flex flex-col items-center justify-center text-center">
+        <div className="relative w-full h-[100vh] mt-16 flex flex-col items-center justify-center text-center snap-start">
           <h2 className="text-6xl">Do you have a project ?</h2>
           <div className="relative">
             {/* SVG */}
