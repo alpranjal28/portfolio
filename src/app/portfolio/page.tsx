@@ -1,18 +1,72 @@
 "use client";
-import { PortfolioItem, projects } from "@/constants";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+
+// Define the type for a portfolio item
+export interface PortfolioItem {
+  color: string;
+  title: string;
+  desc: string;
+  img: string;
+  link: string;
+}
+
+export const projects: PortfolioItem[] = [
+  {
+    color: "from-blue-300 to-violet-300",
+    title: "Draw.app",
+    desc: "This project is a collaborative MS Paint clone built with a Turbo monorepo. It features a Next.js frontend, Express and WebSocket backends, and a PostgreSQL database managed via Prisma ORM. Real-time drawing sync is achieved using WebSockets, with scalable, modular code structure.",
+    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1751719298/projects/Screenshot_2025-07-05_181119_s60woh.png",
+    link: "https://altherius.in/",
+  },
+  {
+    color: "from-violet-300 to-purple-300",
+    title: "Portfolio 2",
+    desc: "This portfolio uses Next.js, React, and TypeScript for a performant, SEO-friendly SPA. Tailwind CSS powers the responsive UI. Features include animated components (Framer Motion), a 3D globe (Three.js), parallax effects, and Sentry integration for error monitoring.",
+    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1751717662/projects/Screenshot_2025-07-05_174402_vvxndk.png",
+    link: "https://refresh.altherius.in/",
+  },
+  {
+    color: "from-purple-300 to-red-300",
+    title: "Multistep Form",
+    desc: "A modern React/Next.js application featuring a centered, card-style form UI built with Tailwind CSS. The project uses modular components for maintainability and Lucide icons for visual clarity. The main page displays a shadowed, rounded form container with a close icon and integrates custom form logic, providing a clean, interactive user experience.",
+    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1751716050/projects/Screenshot_2025-07-05_171620_igtasa.png",
+    link: "https://nablasol.altherius.in/",
+  },
+  {
+    color: "from-red-300 to-blue-300",
+    title: "Airbnb clone",
+    desc: "Engineered a feature-rich Airbnb clone, leveraging HTML, CSS, JavaScript, MongoDB, Node.js, and Express with MVC architecture, showcasing adeptness in full-stack development, database integration, and system design.",
+    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1714991378/projects/airlust_new_p2idmx.png",
+    link: "https://airlust-project.onrender.com/listings",
+  },
+  {
+    color: "from-blue-300 to-violet-300",
+    title: "Food App",
+    desc: "Built a dynamic food ordering application with Next.js, MongoDB, Tailwind CSS, Amazon S3, and Google Authentication. Features include user authentication, menu browsing, cart management, and order processing. Demonstrated proficiency in full-stack development, RESTful API integration, and deployment.",
+    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1714972797/projects/food-app_fydlxj.png",
+    link: "https://food-app.altherius.in/",
+  },
+  {
+    color: "from-violet-300 to-purple-300",
+    title: "Car Showcase",
+    desc: "Developed a comprehensive car deals website using Next.js, Tailwind CSS, and various APIs. The site features real-time data updates and a responsive design, providing an optimal user experience for browsing and managing car listings.",
+    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1719927625/projects/car-deals.png",
+    link: "https://car-deals-ruddy.vercel.app/",
+  },
+  {
+    color: "from-purple-300 to-red-300",
+    title: "Spotify Clone",
+    desc: "Developed my first project—a Spotify-inspired clone—using raw HTML and CSS. Designed and implemented user interface components from scratch, demonstrating foundational skills in front-end web development and design.",
+    img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1714991241/projects/spotifyclone_ujkoky.png",
+    link: "https://spot.altherius.in",
+  },
+];
 
 const PortfolioPage = () => {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
-
-  // Add state for modal/expanded view
-  const [selected, setSelected] = useState<PortfolioItem | null>(null);
 
   return (
     <motion.div
@@ -45,7 +99,7 @@ const PortfolioPage = () => {
                 <div className="lg:grid lg:grid-cols-2">
                   <div className="">
                     <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
-                      <Image src={item.img} alt={item.title} fill />
+                      <Image src={item.img} alt={item.title} fill className="object-contain"/>
                     </div>
                   </div>
                   <div className="py-8 lg:px-8">
@@ -54,7 +108,7 @@ const PortfolioPage = () => {
                     </p>
                     <div className="flex justify-end lg:justify-start ">
                       <Link href={item.link} target="_blank">
-                        <button className="p-2 lg:ml-0 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-500 font-semibold m-4 rounded">
+                        <button className="p-2 lg:ml-0 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-700 font-semibold m-4 rounded">
                           Visit Project
                         </button>
                       </Link>
