@@ -103,14 +103,12 @@ const Navbar = () => {
         <Link
           href={"https://github.com/alpranjal28"}
           target="_blank"
-          title="Visit Github"
         >
           <Github color="white" />
         </Link>
         <Link
           href={"https://www.linkedin.com/in/pranjal-altherius-lakra/"}
           target="_blank"
-          title="Visit Linkedin"
         >
           <Linkedin color="white" />
         </Link>
@@ -177,20 +175,17 @@ const Navbar = () => {
               <Link
                 href={"https://github.com/alpranjal28"}
                 target="_blank"
-                title="Visit Github"
               >
                 <Github />
               </Link>
               <Link
                 href={"https://www.linkedin.com/in/pranjal-altherius-lakra/"}
                 target="_blank"
-                title="Visit LinkedIn"
               >
                 <Linkedin />
               </Link>
               <button
                 type="button"
-                title="Copy Email"
                 className="bg-transparent border-0 p-0 m-0"
                 onClick={() => {
                   navigator.clipboard.writeText("+1234567890"); // replace with your phone number
