@@ -82,7 +82,7 @@ const PortfolioPage = () => {
       >
         {/* <div ref={ref} className="h-[600vh] relative"> */}
         <div className="min-h-[60vh] flex justify-center items-center snap-start gap-4">
-          <h1 className="text-8xl text-center">My Works</h1>
+          <h1 className="text-8xl text-center tracking-wider">My Works</h1>
         </div>
 
         {projects.map((item, index) => (
@@ -90,8 +90,8 @@ const PortfolioPage = () => {
             <div
               className={`h-[calc(100vh-8rem)] flex items-center justify-center bg-gradient-to-r rounded-xl ${item.color}`}
             >
-              <div className="flex flex-col gap-8 text-white">
-                <h1 className="text-5xl font-bold lg:text-5xl xl:text-7xl">
+              <div className="flex flex-col gap-6 text-white lg:px-20">
+                <h1 className="text-5xl font-bold lg:text-5xl xl:text-7xl tracking-wide">
                   {item.title}
                 </h1>
 
