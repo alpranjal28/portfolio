@@ -6,7 +6,11 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { Bounce, ToastContainer } from "react-toastify";
 import { Cursor } from "@/components/cursor";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["system-ui", "arial"],
+});
 const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID as string;
 
 export const metadata: Metadata = {
