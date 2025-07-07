@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import NavLink from "./navLink";
 import { motion } from "framer-motion";
-import { Email, Github, Linkedin} from "./icons";
+import { Email, Github, Linkedin } from "./icons";
 import { toast, ToastContainer, Bounce } from "react-toastify";
 
 const links = [
@@ -100,8 +100,11 @@ const Navbar = () => {
 
       {/* SOCIAL */}
       <div className="hidden md:flex justify-end gap-4 w-1/3 items-center container">
-        <Link href={"https://github.com/alpranjal28"} target="_blank" title="Visit Github">
-          <div className=""></div>
+        <Link
+          href={"https://github.com/alpranjal28"}
+          target="_blank"
+          title="Visit Github"
+        >
           <Github color="white" />
         </Link>
         <Link
@@ -113,7 +116,7 @@ const Navbar = () => {
         </Link>
         <button
           type="button"
-          title="Copy Email"
+          about="copy"
           className="bg-transparent border-0 p-0 m-0"
           onClick={() => {
             navigator.clipboard.writeText("alpranjal28@gmail.com");
