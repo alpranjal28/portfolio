@@ -40,7 +40,7 @@ const ContactPage = () => {
   };
   return (
     <motion.div
-      className=" h-full"
+      className="h-full"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 0.5 }}
@@ -69,7 +69,7 @@ const ContactPage = () => {
 
         {/* FORM CONTAINER */}
         <form
-          className="lg:h-full lg:w-1/2 flex flex-col gap-8 justify-center bg-red-50 rounded-xl text-xl p-16 relative"
+          className="h-fit self-center lg:w-1/2 flex flex-col gap-8 justify-center bg-red-50 rounded-xl text-xl p-12 relative"
           ref={formRef}
           onSubmit={sendEmail}
         >
@@ -77,17 +77,19 @@ const ContactPage = () => {
 
           <textarea
             name="user_message"
-            rows={4}
-            className="bg-red-100 rounded-md  border-b-2 border-b-black outline-none resize-none"
+            rows={5}
+            placeholder="Your message here"
+            className="bg-red-100 rounded-md  border-b-2 border-b-black outline-none resize-none p-4"
             required
           />
 
-          <span>My email address is: </span>
+          <span>Yours</span>
 
           <input
             type="email"
             name="user_email"
-            className="rounded-md bg-red-100  border-b-2 border-b-black outline-none resize-none"
+            placeholder="Email"
+            className="rounded-md bg-red-100  border-b-2 border-b-black outline-none resize-none p-4"
             required
           />
 
