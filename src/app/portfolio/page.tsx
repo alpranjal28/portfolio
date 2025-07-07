@@ -86,7 +86,10 @@ const PortfolioPage = () => {
         </div>
 
         {projects.map((item, index) => (
-          <div className="snap-start h-[calc(100vh-6rem)] m-2 md:m-8" key={index}>
+          <div
+            className="snap-start h-[calc(100vh-6rem)] m-2 md:m-8"
+            key={index}
+          >
             <div
               className={`h-[calc(100vh-8rem)] flex items-center justify-center bg-gradient-to-r rounded-xl ${item.color}`}
             >
@@ -98,7 +101,12 @@ const PortfolioPage = () => {
                 <div className="lg:grid lg:grid-cols-2">
                   <div className="">
                     <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
-                      <Image src={item.img} alt={item.title} fill className="object-contain"/>
+                      <Image
+                        src={item.img}
+                        alt={item.title}
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                   </div>
                   <div className="py-8 lg:px-8">
@@ -106,10 +114,12 @@ const PortfolioPage = () => {
                       {item.desc}
                     </p>
                     <div className="flex justify-end lg:justify-start ">
-                      <Link href={item.link} target="_blank">
-                        <button className="p-2 lg:ml-0 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-700 font-semibold m-4 rounded">
-                          Visit Project
-                        </button>
+                      <Link
+                        href={item.link}
+                        target="_blank"
+                        className="p-2 lg:ml-0 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-700 font-semibold m-4 rounded"
+                      >
+                        Visit Project
                       </Link>
                     </div>
                   </div>
