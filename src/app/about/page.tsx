@@ -27,11 +27,14 @@ const AboutPage = () => {
       transition={{ duration: 0.5 }}
     >
       {/* CONTAINER */}
-      <div className=" h-full overflow-scroll scrollbar-hide lg:flex" ref={containerRef}>
+      <div
+        className=" h-full overflow-scroll scrollbar-hide lg:flex snap-y snap-mandatory"
+        ref={containerRef}
+      >
         {/* TEXT CONTAINER */}
-        <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-24 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0 xl:w-1/2">
+        <div className="p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0 xl:w-1/2 snap-y snap-mandatory">
           {/* BIOGRAPHY CONTAINER */}
-          <div className="flex flex-col gap-12 justify-center">
+          <div className="flex flex-col gap-12 justify-center min-h-[calc(100vh-6rem)] snap-start">
             {/* BIOGRAPHY TITLE */}
             <h1 className=" font-bold text-2xl">BIOGRAPHY</h1>
             {/* BIOGRAPHY DESCRIPTION */}
@@ -83,10 +86,13 @@ const AboutPage = () => {
           </div>
 
           {/* SKILLS CONTAINER */}
-          <div className="flex flex-col gap-12 justify-center" ref={skillRef}>
+          <div
+            className="flex flex-col gap-12 justify-center snap-start"
+            ref={skillRef}
+          >
             {/* SKILL TITLE  */}
             <motion.h2
-              initial={{ x: "-300px" }}
+              initial={{ x: "-100vw" }}
               animate={isSkillRefInView ? { x: 0 } : {}}
               // transition={{ delay: 0.2, duration: 0.4 }}
               className="font-bold text-2xl"
@@ -95,7 +101,7 @@ const AboutPage = () => {
             </motion.h2>
             {/* SKILL LIST  */}
             <motion.div
-              initial={{ x: "-300px" }}
+              initial={{ x: "-100vw" }}
               animate={isSkillRefInView ? { x: 0 } : {}}
               // transition={{ delay: 0.2, duration: 0.5 }}
               className="flex flex-wrap gap-4"
@@ -136,12 +142,12 @@ const AboutPage = () => {
 
           {/* EXPERIENCE CONTAINER */}
           <div
-            className="flex flex-col gap-12 justify-center"
+            className="flex flex-col gap-12 justify-center h-[calc(100vh-6rem)] snap-start"
             ref={experienceRef}
           >
             {/* EXPERIENCE TITLE  */}
             <motion.h2
-              initial={{ x: "-300px" }}
+              initial={{ x: "-100vw" }}
               animate={isExperienceRefInView ? { x: 0 } : {}}
               // transition={{ delay: 0.2, duration: 0.4 }}
               className="font-bold text-2xl"
@@ -151,104 +157,106 @@ const AboutPage = () => {
 
             {/* EXPERIENCE LIST  */}
             <motion.div
-              initial={{ x: "-300px" }}
+              initial={{ x: "-100vw" }}
               animate={isExperienceRefInView ? { x: 0 } : {}}
               // transition={{ delay: 0.1, duration: 0.4 }}
-              className=""
+              className="overflow-y-scroll h-full scrollbar-hide"
             >
-              {/* EXPERIENCE LIST ITEM  */}
-              <div className="flex justify-between h-48">
-                {/* LEFT */}
-                <div className=" w-1/3">
-                  {/* JOB TITLE */}
-                  <div className="bg-white p-3 font-semibold rounded-s-lg rounded-b-lg">
-                    Building projects
+              <div className="container">
+                {/* EXPERIENCE LIST ITEM  */}
+                <div className="flex justify-between h-48 pt-8">
+                  {/* LEFT */}
+                  <div className=" w-1/3">
+                    {/* JOB TITLE */}
+                    <div className="bg-white p-3 font-semibold rounded-s-lg rounded-b-lg">
+                      Building projects
+                    </div>
+                    {/* JOB DESCRIPTION */}
+                    <div className="p-3 text-sm italic">
+                      Aspiring to find a job in IT
+                    </div>
+                    {/* JOB DATE */}
+                    <div className="p-3 text-red-600 text-sm font-semibold">
+                      2023 - Present
+                    </div>
+                    {/* JOB LOCATION */}
+                    <div className="p-3 w-fit rounded bg-white text-sm font-semibold">
+                      Remote
+                    </div>
                   </div>
-                  {/* JOB DESCRIPTION */}
-                  <div className="p-3 text-sm italic">
-                    Aspiring to find a job in IT
+                  {/* CENTER */}
+                  <div className=" w-1/6 flex justify-center">
+                    {/* LINE  */}
+                    <div className="w-1 h-full bg-gray-700 rounded relative flex justify-center">
+                      {/* LINE CIRCLE  */}
+                      <div className=" -top-2 absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white"></div>
+                    </div>
                   </div>
-                  {/* JOB DATE */}
-                  <div className="p-3 text-red-600 text-sm font-semibold">
-                    2023 - Present
+                  {/* RIGHT */}
+                  <div className=" w-1/3"></div>
+                </div>
+                <div className="flex justify-between h-48 ">
+                  {/* LEFT */}
+                  <div className=" w-1/3 "></div>
+                  {/* CENTER */}
+                  <div className=" w-1/6 flex justify-center">
+                    {/* LINE  */}
+                    <div className="w-1 h-full bg-gray-700 rounded relative flex justify-center">
+                      {/* LINE CIRCLE  */}
+                      <div className=" -top-2 absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white"></div>
+                    </div>
                   </div>
-                  {/* JOB LOCATION */}
-                  <div className="p-3 w-fit rounded bg-white text-sm font-semibold">
-                    Remote
+                  {/* RIGHT */}
+                  <div className=" w-1/3">
+                    {/* JOB TITLE */}
+                    <div className="bg-white p-3 font-semibold rounded-e-lg rounded-b-lg">
+                      Web Developer
+                    </div>
+                    {/* JOB DESCRIPTION */}
+                    <div className="p-3 text-sm italic">
+                      Aspiring to find a job in Web Dev
+                    </div>
+                    {/* JOB DATE */}
+                    <div className="p-3 text-red-600 text-sm font-semibold">
+                      2023 - Present
+                    </div>
+                    {/* JOB LOCATION */}
+                    <div className="p-3 w-fit rounded bg-white text-sm font-semibold">
+                      Remote
+                    </div>
                   </div>
                 </div>
-                {/* CENTER */}
-                <div className=" w-1/6 flex justify-center">
-                  {/* LINE  */}
-                  <div className="w-1 h-full bg-gray-700 rounded relative flex justify-center">
-                    {/* LINE CIRCLE  */}
-                    <div className=" -top-2 absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white"></div>
+                <div className="flex justify-between h-48">
+                  {/* LEFT */}
+                  <div className=" w-1/3">
+                    {/* JOB TITLE */}
+                    <div className="bg-white p-3 font-semibold rounded-s-lg rounded-b-lg">
+                      Delta 2.0 by Apna College
+                    </div>
+                    {/* JOB DESCRIPTION */}
+                    <div className="p-3 text-sm italic">
+                      Aspiring to find a job in Web Dev
+                    </div>
+                    {/* JOB DATE */}
+                    <div className="p-3 text-red-600 text-sm font-semibold">
+                      2023 - 2024
+                    </div>
+                    {/* JOB LOCATION */}
+                    <div className="p-3 w-fit rounded bg-white text-sm font-semibold">
+                      Remote
+                    </div>
                   </div>
+                  {/* CENTER */}
+                  <div className=" w-1/6 flex justify-center">
+                    {/* LINE  */}
+                    <div className="w-1 h-full bg-gray-700 rounded relative flex justify-center">
+                      {/* LINE CIRCLE  */}
+                      <div className=" -top-2 absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white"></div>
+                    </div>
+                  </div>
+                  {/* RIGHT */}
+                  <div className=" w-1/3"></div>
                 </div>
-                {/* RIGHT */}
-                <div className=" w-1/3"></div>
-              </div>
-              <div className="flex justify-between h-48 ">
-                {/* LEFT */}
-                <div className=" w-1/3 "></div>
-                {/* CENTER */}
-                <div className=" w-1/6 flex justify-center">
-                  {/* LINE  */}
-                  <div className="w-1 h-full bg-gray-700 rounded relative flex justify-center">
-                    {/* LINE CIRCLE  */}
-                    <div className=" -top-2 absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white"></div>
-                  </div>
-                </div>
-                {/* RIGHT */}
-                <div className=" w-1/3">
-                  {/* JOB TITLE */}
-                  <div className="bg-white p-3 font-semibold rounded-e-lg rounded-b-lg">
-                    Web Developer
-                  </div>
-                  {/* JOB DESCRIPTION */}
-                  <div className="p-3 text-sm italic">
-                    Aspiring to find a job in Web Dev
-                  </div>
-                  {/* JOB DATE */}
-                  <div className="p-3 text-red-600 text-sm font-semibold">
-                    2023 - Present
-                  </div>
-                  {/* JOB LOCATION */}
-                  <div className="p-3 w-fit rounded bg-white text-sm font-semibold">
-                    Remote
-                  </div>
-                </div>
-              </div>
-              <div className="flex justify-between h-48">
-                {/* LEFT */}
-                <div className=" w-1/3">
-                  {/* JOB TITLE */}
-                  <div className="bg-white p-3 font-semibold rounded-s-lg rounded-b-lg">
-                    Delta 2.0 by Apna College
-                  </div>
-                  {/* JOB DESCRIPTION */}
-                  <div className="p-3 text-sm italic">
-                    Aspiring to find a job in Web Dev
-                  </div>
-                  {/* JOB DATE */}
-                  <div className="p-3 text-red-600 text-sm font-semibold">
-                    2023 - 2024
-                  </div>
-                  {/* JOB LOCATION */}
-                  <div className="p-3 w-fit rounded bg-white text-sm font-semibold">
-                    Remote
-                  </div>
-                </div>
-                {/* CENTER */}
-                <div className=" w-1/6 flex justify-center">
-                  {/* LINE  */}
-                  <div className="w-1 h-full bg-gray-700 rounded relative flex justify-center">
-                    {/* LINE CIRCLE  */}
-                    <div className=" -top-2 absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white"></div>
-                  </div>
-                </div>
-                {/* RIGHT */}
-                <div className=" w-1/3"></div>
               </div>
             </motion.div>
           </div>
@@ -258,7 +266,7 @@ const AboutPage = () => {
         <div className=" hidden lg:block w-1/3 xl:w-1/2 sticky top-0 z-30">
           {/* <Brain scrollYProgress={scrollYProgress}></Brain> */}
           {/* <Coffee/> */}
-          <CoffeeCode/>
+          <CoffeeCode />
         </div>
       </div>
     </motion.div>
