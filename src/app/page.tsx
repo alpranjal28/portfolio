@@ -44,20 +44,23 @@ export default function Homepage() {
           </p>
           {/* BUTTONS */}
           <div className="w-full flex gap-4 m-4">
-            <Link href={"/portfolio"}>
-              <button className="px-4 py-2 rounded-lg ring-2 ring-black bg-black text-white">
-                view my work
-              </button>
+            <Link
+              href={"/portfolio"}
+              className="px-4 py-2 rounded-lg ring-2 ring-black bg-black text-white"
+            >
+              view my work
             </Link>
-            <Link href={"/contact"}>
-              <button className="px-4 py-2 rounded-lg ring-2 ring-black">
-                contact me
-              </button>
+            <Link
+              href={"/contact"}
+              className="px-4 py-2 rounded-lg ring-2 ring-black"
+            >
+              contact me
             </Link>
-            <Link href={"/about"}>
-              <button className="px-4 py-2 rounded-lg ring-2 ring-black bg-black text-white">
-                About Me
-              </button>
+            <Link
+              href={"/about"}
+              className="px-4 py-2 rounded-lg ring-2 ring-black bg-black text-white"
+            >
+              About Me
             </Link>
           </div>
         </div>

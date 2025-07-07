@@ -53,12 +53,12 @@ export const Cursor = () => {
       className="fixed h-10 w-10 flex items-center justify-center rounded-full border-2 border-zinc-950 z-40"
       animate={position}
     >
-      {cursorover === "/" && <House size={16} />}
-      {cursorover === "about" && <BookOpen size={16} />}
-      {cursorover === "contact" && <Contact size={16} />}
-      {cursorover === "portfolio" && <BriefcaseBusiness size={16} />}
-      {cursorover === "copy" && <Clipboard size={16} />}
-      {cursorover === "external" && <ExternalLink size={16} />}
+      {cursorover === "/" && <House />}
+      {cursorover === "about" && <BookOpen />}
+      {cursorover === "contact" && <Contact />}
+      {cursorover === "portfolio" && <BriefcaseBusiness />}
+      {cursorover === "copy" && <Clipboard />}
+      {cursorover === "external" && <ExternalLink />}
     </motion.div>
   );
 };
