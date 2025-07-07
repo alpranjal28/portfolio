@@ -12,12 +12,12 @@ const AboutPage = () => {
   // const { scrollYProgress } = useScroll({ container: containerRef });
 
   const skillRef = useRef(null);
-  // const isSkillRefInView = useInView(skillRef, { once: true });
-  const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
+  const isSkillRefInView = useInView(skillRef, { once: true });
+  // const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
 
   const experienceRef = useRef(null);
-  // const isExperienceRefInView = useInView(experienceRef, { once: true });
-  const isExperienceRefInView = useInView(experienceRef, { margin: "-100px" });
+  const isExperienceRefInView = useInView(experienceRef, { once: true });
+  // const isExperienceRefInView = useInView(experienceRef, { margin: "-100px" });
 
   return (
     <motion.div
@@ -28,7 +28,7 @@ const AboutPage = () => {
     >
       {/* CONTAINER */}
       <div
-        className=" h-full overflow-scroll scrollbar-hide lg:flex snap-y snap-mandatory"
+        className=" h-full overflow-scroll scrollbar-hide lg:flex snap-y snap-mandatory scroll-smooth"
         ref={containerRef}
       >
         {/* TEXT CONTAINER */}
