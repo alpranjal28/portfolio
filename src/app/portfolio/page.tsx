@@ -12,8 +12,7 @@ export interface PortfolioItem {
   img: string;
   link: string;
 }
-
-export const projects: PortfolioItem[] = [
+const projects: PortfolioItem[] = [
   {
     color: "from-blue-300 to-violet-300",
     title: "Draw.app",
