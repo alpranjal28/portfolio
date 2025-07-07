@@ -1,7 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Clipboard, ExternalLink, House } from "lucide-react";
+import {
+  BookOpen,
+  BriefcaseBusiness,
+  Clipboard,
+  Contact,
+  ExternalLink,
+  House,
+} from "lucide-react";
 
 export const Cursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -20,8 +27,12 @@ export const Cursor = () => {
           setCursorOver("copy");
         } else if (href === "/") {
           setCursorOver("/");
-        } else if (href === "/") {
-          setCursorOver("/");
+        } else if (href === "/about") {
+          setCursorOver("about");
+        } else if (href === "/portfolio") {
+          setCursorOver("portfolio");
+        } else if (href === "/contact") {
+          setCursorOver("contact");
         } else if (href && href.startsWith("http")) {
           setCursorOver("external");
         } else {
@@ -43,6 +54,9 @@ export const Cursor = () => {
       animate={position}
     >
       {cursorover === "/" && <House size={16} />}
+      {cursorover === "about" && <BookOpen size={16} />}
+      {cursorover === "contact" && <Contact size={16} />}
+      {cursorover === "portfolio" && <BriefcaseBusiness size={16} />}
       {cursorover === "copy" && <Clipboard size={16} />}
       {cursorover === "external" && <ExternalLink size={16} />}
     </motion.div>
