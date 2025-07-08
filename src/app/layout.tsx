@@ -11,7 +11,7 @@ const inter = Inter({
   display: "swap",
   fallback: ["system-ui", "arial"],
 });
-const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID as string;
+// const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID as string;
 
 export const metadata: Metadata = {
   title: "Portfolio | Pranjal",
@@ -41,7 +41,7 @@ export default function RootLayout({
         />
         <Cursor />
         <TransitionProvider>{children}</TransitionProvider>
-        <GoogleAnalytics gaId={googleAnalyticsId} />
+        <GoogleAnalytics gaId="G-7ELZ2SBZKF" />
       </body>
     </html>
   );
