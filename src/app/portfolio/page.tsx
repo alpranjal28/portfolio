@@ -39,7 +39,7 @@ const projects: PortfolioItem[] = [
     title: "Airbnb clone",
     desc: "Engineered a feature-rich Airbnb clone, leveraging HTML, CSS, JavaScript, MongoDB, Node.js, and Express with MVC architecture, showcasing adeptness in full-stack development, database integration, and system design.",
     img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1714991378/projects/airlust_new_p2idmx.png",
-    link: "https://airlust-project.onrender.com/listings",
+    link: "https://airlust.altherius.in",
   },
   {
     color: "from-blue-300 to-violet-300",
