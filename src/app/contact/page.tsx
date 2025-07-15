@@ -3,11 +3,13 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const text: string = "Say hello";
+  const notify = (content: string) => toast(content);
 
   const formRef = useRef<HTMLFormElement>(null);
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
@@ -193,9 +195,17 @@ const ContactPage = () => {
               >
                 {/* Header with Avatar */}
                 <div className="text-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <button
+                    about="copy"
+                    onClick={() => {
+                      navigator.clipboard.writeText("alpranjal28@gmail.com");
+                      notify("Email copied");
+                    }}
+                    type="button"
+                    className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center"
+                  >
                     <span className="text-white text-xl font-bold">P</span>
-                  </div>
+                  </button>
                   <h2 className="text-white text-xl font-semibold">
                     Let&apos;s Connect
                   </h2>
@@ -256,7 +266,6 @@ const ContactPage = () => {
                     </p>
                   </motion.div>
                 )}
-
 
                 {/* Send Button */}
                 <motion.button
