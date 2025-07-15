@@ -141,7 +141,7 @@ const ContactPage = () => {
               name="user_message"
               rows={4}
               placeholder="Your message"
-              className="w-full bg-zinc-800/50 rounded-lg border border-zinc-700 text-white outline-none resize-none p-4 focus:border-red-400 transition-colors"
+              className="w-full bg-zinc-800/50 rounded-lg border border-zinc-700 text-white outline-none resize-none p-4 focus:border-blue-400 transition-colors"
               required
             />
           </div>
@@ -151,14 +151,10 @@ const ContactPage = () => {
               type="email"
               name="user_email"
               placeholder="Your email"
-              className="w-full bg-zinc-800/50 rounded-lg border border-zinc-700 text-white outline-none p-4 focus:border-red-400 transition-colors"
+              className="w-full bg-zinc-800/50 rounded-lg border border-zinc-700 text-white outline-none p-4 focus:border-blue-400 transition-colors"
               required
             />
           </div>
-
-          <button className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-lg font-medium p-4 transition-all duration-300 hover:shadow-lg">
-            Send Message
-          </button>
 
           {success && (
             <motion.p
@@ -179,6 +175,11 @@ const ContactPage = () => {
               Something went wrong. Please try again.
             </motion.p>
           )}
+
+          <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg font-medium p-4 transition-all duration-300 hover:shadow-lg">
+            Send Message
+          </button>
+
         </form>
 
         {/* FORM CONTAINER - Enhanced Phone UI */}
