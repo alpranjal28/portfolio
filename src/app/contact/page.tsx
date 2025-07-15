@@ -197,7 +197,7 @@ const ContactPage = () => {
                     <span className="text-white text-xl font-bold">P</span>
                   </div>
                   <h2 className="text-white text-xl font-semibold">
-                    Let's Connect
+                    Let&apos;s Connect
                   </h2>
                   <p className="text-slate-400 text-sm mt-1">
                     Drop me a message
