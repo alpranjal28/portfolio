@@ -1,129 +1,52 @@
 export const skills = [
-  {
-    title: "TypeScript",
-    type: "language",
-  },
-  {
-    title: "JavaScript",
-    type: "language",
-  },
-  {
-    title: "HTML",
-    type: "language",
-  },
-  {
-    title: "CSS",
-    type: "language",
-  },
-  {
-    title: "Docker",
-    type: "containerization",
-  },
-  {
-    title: "React",
-    type: "framework",
-  },
-  {
-    title: "Shadcn",
-    type: "framework",
-  },
-  {
-    title: "NextJS",
-    type: "framework",
-  },
-  {
-    title: "Express",
-    type: "framework",
-  },
-  {
-    title: "Node.js",
-    type: "Runtime",
-  },
-  {
-    title: "Bun",
-    type: "Runtime",
-  },
-  {
-    title: "Tailwind",
-    type: "framework",
-  },
-  {
-    title: "WebSocket",
-    type: "real-time communication",
-  },
-  {
-    title: "AWS S3",
-    type: "tools",
-  },
-  {
-    title: "AWS EC2",
-    type: "tools",
-  },
-  {
-    title: "AWS RDS",
-    type: "tools",
-  },
-  {
-    title: "Appwrite",
-    type: "tools",
-  },
-  {
-    title: "Cloudinary",
-    type: "tools",
-  },
-  {
-    title: "PostgreSQL",
-    type: "database",
-  },
-  {
-    title: "MongoDB",
-    type: "database",
-  },
-  {
-    title: "MySQL",
-    type: "database",
-  },
-  {
-    title: "Prisma ORM",
-    type: "database",
-  },
-  {
-    title: "BootStrap",
-    type: "library",
-  },
-  {
-    title: "Framer-Motion",
-    type: "library",
-  },
-  {
-    title: "Material-UI",
-    type: "library",
-  },
-  {
-    title: "Radix-UI",
-    type: "library",
-  },
-  {
-    title: "Git",
-    type: "other",
-  },
-  {
-    title: "GitHub",
-    type: "other",
-  },
-  {
-    title: "twilio",
-    type: "other",
-  },
-  {
-    title: "Linux",
-    type: "other",
-  },
-  {
-    title: "TurboRepo",
-    type: "other",
-  },
-];
+  // Languages
+  { title: "TypeScript", type: "language" },
+  { title: "JavaScript", type: "language" },
+  { title: "HTML", type: "language" },
+  { title: "CSS", type: "language" },
+
+  // Frontend
+  { title: "React", type: "frontend" },
+  { title: "NextJS", type: "frontend" },
+  { title: "Tailwind", type: "frontend" },
+  { title: "Sass", type: "frontend" },
+  { title: "BootStrap", type: "frontend" },
+
+  // Backend
+  { title: "Express", type: "backend" },
+  { title: "Node.js", type: "backend" },
+  { title: "Bun", type: "backend" },
+  { title: "Web Socket", type: "backend" },
+
+  // Database
+  { title: "PostgreSQL", type: "database" },
+  { title: "MongoDB", type: "database" },
+  { title: "MySQL", type: "database" },
+  { title: "Prisma ORM", type: "database" },
+
+  // Cloud & DevOps
+  { title: "AWS S3", type: "cloud" },
+  { title: "AWS EC2", type: "cloud" },
+  { title: "AWS RDS", type: "cloud" },
+  { title: "Docker", type: "devops" },
+  { title: "TurboRepo", type: "devops" },
+
+  // Libraries & UI
+  { title: "Shadcn", type: "library" },
+  { title: "Material-UI", type: "library" },
+  { title: "Radix-UI", type: "library" },
+  { title: "Motion.dev", type: "library" },
+
+  // Tools
+  { title: "Git", type: "tools" },
+  { title: "GitHub", type: "tools" },
+  { title: "VS Code", type: "tools" },
+  { title: "Postman", type: "tools" },
+  { title: "Appwrite", type: "tools" },
+  { title: "Cloudinary", type: "tools" },
+  { title: "Twilio", type: "tools" },
+  { title: "Linux", type: "tools" },
+].sort((a, b) => a.title.localeCompare(b.title));
 
 export const socials = [
   {

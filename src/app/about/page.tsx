@@ -7,6 +7,15 @@ import { skills } from "@/constants";
 import { motion, useInView, useScroll } from "framer-motion";
 import { useRef } from "react";
 
+interface Skill {
+  title: string;
+  type: string;
+}
+
+type SkillsByType = {
+  [key: string]: Skill[];
+};
+
 const AboutPage = () => {
   const containerRef = useRef(null);
   // const { scrollYProgress } = useScroll({ container: containerRef });
@@ -100,21 +109,39 @@ const AboutPage = () => {
               SKILLS
             </motion.h2>
             {/* SKILL LIST  */}
+            {/* SKILL LIST */}
             <motion.div
               initial={{ x: "-100vw" }}
               animate={isSkillRefInView ? { x: 0 } : {}}
-              // transition={{ delay: 0.2, duration: 0.5 }}
-              className="flex flex-wrap gap-4"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
-              {skills.map((skill) => (
-                <div
-                  key={skill.title}
-                  className=" w-fit rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 hover:text-white"
-                >
-                  {skill.title}
+              {/* Group skills by type */}
+              {Object.entries(
+                skills.reduce<SkillsByType>((acc, skill) => {
+                  acc[skill.type] = [...(acc[skill.type] || []), skill];
+                  return acc;
+                }, {})
+              ).map(([type, skillsOfType]) => (
+                <div key={type} className="mb-4">
+                  <h3 className="text-lg font-medium mb-2 capitalize">
+                    {type}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {skillsOfType.map((skill: Skill) => (
+                      <button
+                        key={skill.title}
+                        className="rounded px-4 py-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 transition-colors flex items-center gap-1"
+                        about={skill.title}
+                      >
+                        <span className="w-2 h-2 rounded-full bg-red-400"></span>
+                        {skill.title}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               ))}
             </motion.div>
+
             {/* SKILL SCROLL SVG */}
             <motion.svg
               initial={{ opacity: 0.2, y: 0 }}
