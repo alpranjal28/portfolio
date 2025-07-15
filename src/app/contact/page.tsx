@@ -4,10 +4,12 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
+import { Checked, Email } from "@/components/icons";
 
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [copied, setCopied] = useState(false);
   const text: string = "Say hello";
   const notify = (content: string) => toast(content);
 
@@ -47,7 +49,7 @@ const ContactPage = () => {
       animate={{ y: "0%" }}
       transition={{ duration: 0.5 }}
     >
-      <div className=" overflow-scroll h-full flex flex-col lg:flex-row px-1 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+      <div className=" overflow-scroll h-full flex flex-col lg:flex-row px-1 sm:px-6 md:px-12 lg:px-20 xl:px-48">
         {/* TEXT CONTAINER */}
         <div className=" h-1/3 lg:h-full lg:w-1/2 flex items-center justify-center text-6xl">
           <motion.div className="">
@@ -111,12 +113,28 @@ const ContactPage = () => {
         </form> */}
 
         {/* FORM CONTAINER UPDATED*/}
-        {/* <form
-          className="h-fit self-center lg:w-1/2 flex flex-col gap-6 justify-center bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl text-lg p-8 md:p-10 relative shadow-xl"
+        <form
+          className="h-fit self-center lg:w-1/2 flex flex-col lg:hidden gap-6 justify-center bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl text-lg p-4 md:py-10 md:px-6 relative shadow-xl"
           ref={formRef}
           onSubmit={sendEmail}
         >
-          <h2 className="text-white text-2xl font-light mb-2">Get in touch</h2>
+          <h2 className="text-white text-2xl font-light mb-2 flex items-center  justify-between">
+            <span>Get in touch</span>
+            <button
+              type="button"
+              about="copy"
+              onClick={() => {
+                navigator.clipboard.writeText("alpranjal28@gmail.com");
+                notify("Email copied to clipboard!");
+                setCopied(true);
+                setTimeout(() => {
+                  setCopied(false);
+                }, 2000);
+              }}
+            >
+              {copied ? <Checked /> : <Email color="white" />}
+            </button>
+          </h2>
 
           <div className="relative">
             <textarea
@@ -161,10 +179,10 @@ const ContactPage = () => {
               Something went wrong. Please try again.
             </motion.p>
           )}
-        </form> */}
+        </form>
 
         {/* FORM CONTAINER - Enhanced Phone UI */}
-        <div className="h-fit w-full lg:w-1/2 flex items-center justify-center self-center">
+        <div className="h-fit w-full lg:w-1/2 hidden lg:flex items-center justify-center self-center">
           {/* Phone Frame */}
           <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-[3rem] p-3 shadow-2xl relative w-full max-w-sm">
             {/* Camera Notch */}
@@ -200,6 +218,10 @@ const ContactPage = () => {
                     onClick={() => {
                       navigator.clipboard.writeText("alpranjal28@gmail.com");
                       notify("Email copied");
+                      setCopied(true);
+                      setTimeout(() => {
+                        setCopied(false);
+                      }, 2000);
                     }}
                     type="button"
                     className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center"

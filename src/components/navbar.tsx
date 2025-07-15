@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import NavLink from "./navLink";
 import { motion } from "framer-motion";
-import { Email, Github, Linkedin } from "./icons";
+import { Checked, Email, Github, Linkedin } from "./icons";
 import { toast, ToastContainer, Bounce } from "react-toastify";
 
 const links = [
@@ -15,6 +15,7 @@ const links = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
   function toggle() {
     setOpen(!open);
   }
@@ -100,10 +101,7 @@ const Navbar = () => {
 
       {/* SOCIAL */}
       <div className="hidden md:flex justify-end gap-4 w-1/3 items-center container">
-        <Link
-          href={"https://github.com/alpranjal28"}
-          target="_blank"
-        >
+        <Link href={"https://github.com/alpranjal28"} target="_blank">
           <Github color="white" />
         </Link>
         <Link
@@ -115,13 +113,16 @@ const Navbar = () => {
         <button
           type="button"
           about="copy"
-          className="bg-transparent border-0 p-0 m-0"
           onClick={() => {
             navigator.clipboard.writeText("alpranjal28@gmail.com");
-            notify("Email copied");
+            notify("Email copied to clipboard!");
+            setCopied(true);
+            setTimeout(() => {
+              setCopied(false);
+            }, 2000);
           }}
         >
-          <Email color="white" />
+          {copied ? <Checked /> : <Email color="white"/>}
         </button>
       </div>
 
@@ -172,10 +173,7 @@ const Navbar = () => {
               variants={listItemVariants}
               className=" flex flex-row space-x-4 items-center"
             >
-              <Link
-                href={"https://github.com/alpranjal28"}
-                target="_blank"
-              >
+              <Link href={"https://github.com/alpranjal28"} target="_blank">
                 <Github />
               </Link>
               <Link

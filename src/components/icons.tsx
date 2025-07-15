@@ -1,3 +1,5 @@
+import { CheckCheck } from "lucide-react";
+
 export const Linkedin = ({ color }: { color?: string }) => {
   return (
     <div className="bg-black p-2 rounded-full">
@@ -40,6 +42,13 @@ export const Email = ({ color }: { color?: string }) => {
         <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
         <rect x="2" y="4" width="20" height="16" rx="2" />
       </svg>
+    </div>
+  );
+};
+export const Checked = ({ color }: { color?: string }) => {
+  return (
+    <div className="bg-black p-2 rounded-full">
+      <CheckCheck height="24" width="24" color="#22c55e" />
     </div>
   );
 };
