@@ -3,8 +3,8 @@ import Link from "next/link";
 import { useState } from "react";
 import NavLink from "./navLink";
 import { motion } from "framer-motion";
-import { Checked, Email, Github, Linkedin } from "./icons";
-import { toast, ToastContainer, Bounce } from "react-toastify";
+import { Github, Linkedin } from "./icons";
+import { CopyEmail } from "./copyEmail";
 
 const links = [
   { url: "/", title: "Home" },
@@ -15,12 +15,9 @@ const links = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
   function toggle() {
     setOpen(!open);
   }
-
-  const notify = (content: string) => toast(content);
 
   const topVariants = {
     closed: {
@@ -110,20 +107,7 @@ const Navbar = () => {
         >
           <Linkedin color="white" />
         </Link>
-        <button
-          type="button"
-          about="copy"
-          onClick={() => {
-            navigator.clipboard.writeText("alpranjal28@gmail.com");
-            notify("Email copied to clipboard!");
-            setCopied(true);
-            setTimeout(() => {
-              setCopied(false);
-            }, 2000);
-          }}
-        >
-          {copied ? <Checked /> : <Email color="white"/>}
-        </button>
+        <CopyEmail />
       </div>
 
       {/* //////////MOBILE///////// */}
@@ -182,16 +166,7 @@ const Navbar = () => {
               >
                 <Linkedin />
               </Link>
-              <button
-                type="button"
-                className="bg-transparent border-0 p-0 m-0"
-                onClick={() => {
-                  navigator.clipboard.writeText("+1234567890"); // replace with your phone number
-                  notify("Email copied");
-                }}
-              >
-                <Email color="white" />
-              </button>
+              <CopyEmail />
             </motion.div>
           </motion.div>
         )}
@@ -200,6 +175,3 @@ const Navbar = () => {
   );
 };
 export default Navbar;
-
-{
-}
