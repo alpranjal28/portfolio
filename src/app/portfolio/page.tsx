@@ -18,7 +18,7 @@ const projects: PortfolioItem[] = [
     title: "Draw.app",
     desc: "This project is a collaborative MS Paint clone built with a Turbo monorepo. It features a Next.js frontend, Express and WebSocket backends, and a PostgreSQL database managed via Prisma ORM. Real-time drawing sync is achieved using WebSockets, with scalable, modular code structure.",
     img: "https://res.cloudinary.com/dn0nsms3w/image/upload/v1751719298/projects/Screenshot_2025-07-05_181119_s60woh.png",
-    link: "https://altherius.in/",
+    link: "https://draw.altherius.in/",
   },
   {
     color: "from-violet-300 to-purple-300",
