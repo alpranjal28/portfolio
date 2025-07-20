@@ -5,6 +5,7 @@ import NavLink from "./navLink";
 import { motion } from "framer-motion";
 import { Github, Linkedin } from "./icons";
 import { CopyEmail } from "./copyEmail";
+import { useNavStore } from "@/store/navStore";
 
 const links = [
   { url: "/", title: "Home" },
@@ -14,10 +15,7 @@ const links = [
 ];
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
-  function toggle() {
-    setOpen(!open);
-  }
+  const { isOpen, setIsOpen, toggle } = useNavStore();
 
   const topVariants = {
     closed: {
@@ -114,30 +112,30 @@ const Navbar = () => {
       {/* RESPONSIVE MENU */}
 
       <div className="md:hidden z-50">
-        {/* MENU BUTTON */}
+        {/* HAMBURGER MENU BUTTON */}
         <button
           className="w-10 h-8 flex flex-col justify-between z-50 relative mr-4"
           onClick={toggle}
         >
           <motion.div
             variants={topVariants}
-            animate={open ? "opened" : "closed"}
+            animate={isOpen ? "opened" : "closed"}
             className="w-10 h-1 bg-black rounded origin-left"
           ></motion.div>
           <motion.div
             variants={centerVariants}
-            animate={open ? "opened" : "closed"}
+            animate={isOpen ? "opened" : "closed"}
             className="w-10 h-1 bg-black rounded"
           ></motion.div>
           <motion.div
             variants={bottomVariants}
-            animate={open ? "opened" : "closed"}
+            animate={isOpen ? "opened" : "closed"}
             className="w-10 h-1 bg-black rounded origin-left"
           ></motion.div>
         </button>
 
         {/* MENU LIST */}
-        {open && (
+        {isOpen && (
           <motion.div
             variants={listVariants}
             initial="closed"
@@ -149,6 +147,7 @@ const Navbar = () => {
                 variants={listItemVariants}
                 className=""
                 key={link.title}
+                onClick={() => setTimeout(() => setIsOpen(false), 550)} // Close menu after clicking a link
               >
                 <Link href={link.url}>{link.title}</Link>
               </motion.div>

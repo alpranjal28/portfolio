@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   BookOpen,
@@ -43,11 +43,22 @@ import {
   VsCode,
   WebSocket,
 } from "./icons";
+import { useCursorStore } from "@/store/cursorStore";
 
 export const Cursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [cursorover, setCursorOver] = useState("");
-  const [showCursor, setShowCursor] = useState(false);
+  // Zustand store for cursor state
+  // This will manage the cursor position, visibility, and what it's hovering over
+  // It will also handle the logic for showing different icons based on the hovered element
+  // and updating the cursor position based on mouse movement
+  const {
+    position,
+    setPosition,
+    showCursor,
+    setShowCursor,
+    cursorOver,
+    setCursorOver,
+  } = useCursorStore();
+
   useEffect(() => {
     const hasMouse = window.matchMedia("(pointer:fine)").matches;
     setShowCursor(hasMouse);
@@ -99,49 +110,49 @@ export const Cursor = () => {
       animate={{
         x: position.x,
         y: position.y,
-        scale: cursorover ? 1.3 : 1,
+        scale: cursorOver ? 1.3 : 1,
       }}
     >
-      {cursorover === "/" && <House />}
-      {cursorover === "about" && <BookOpen />}
-      {cursorover === "contact" && <Contact />}
-      {cursorover === "portfolio" && <BriefcaseBusiness />}
-      {cursorover === "copy" && <Clipboard />}
-      {cursorover === "external" && <ExternalLink />}
-      {cursorover === "javascript" && <JavaScript />}
-      {cursorover === "typescript" && <TypeScript />}
-      {cursorover === "html" && <Html5 />}
-      {cursorover === "css" && <Css3 />}
-      {cursorover === "node.js" && <NodeJs1 />}
-      {cursorover === "tailwind" && <Tailwind />}
-      {cursorover === "nextjs" && <NextJs />}
-      {cursorover === "linux" && <Linux />}
-      {cursorover === "github" && <Github color="white" />}
-      {cursorover === "mongodb" && <Mongo1 />}
-      {cursorover === "postgresql" && <Postgres />}
-      {cursorover === "bootstrap" && <Bootstrap />}
-      {cursorover === "react" && <React />}
-      {cursorover === "docker" && <Docker />}
-      {cursorover === "aws s3" && <Aws />}
-      {cursorover === "aws ec2" && <Aws />}
-      {cursorover === "aws rds" && <Aws />}
-      {cursorover === "postman" && <Postman />}
-      {cursorover === "sass" && <Sass />}
-      {cursorover === "express" && <Express />}
-      {cursorover === "turborepo" && <Turborepo />}
-      {cursorover === "git" && <Git />}
-      {cursorover === "mysql" && <MySql />}
-      {cursorover === "bun" && <Bun />}
-      {cursorover === "appwrite" && <AppWrite />}
-      {cursorover === "prisma orm" && <PrismaORM />}
-      {cursorover === "shadcn" && <ShadCn />}
-      {cursorover === "vs code" && <VsCode />}
-      {cursorover === "twilio" && <Twilio />}
-      {cursorover === "web socket" && <WebSocket />}
-      {cursorover === "material-ui" && <MaterialUi />}
-      {cursorover === "cloudinary" && <Cloudinary />}
-      {cursorover === "radix-ui" && <RadixUi />}
-      {cursorover === "motion.dev" && <MotionDev />}
+      {cursorOver === "/" && <House />}
+      {cursorOver === "about" && <BookOpen />}
+      {cursorOver === "contact" && <Contact />}
+      {cursorOver === "portfolio" && <BriefcaseBusiness />}
+      {cursorOver === "copy" && <Clipboard />}
+      {cursorOver === "external" && <ExternalLink />}
+      {cursorOver === "javascript" && <JavaScript />}
+      {cursorOver === "typescript" && <TypeScript />}
+      {cursorOver === "html" && <Html5 />}
+      {cursorOver === "css" && <Css3 />}
+      {cursorOver === "node.js" && <NodeJs1 />}
+      {cursorOver === "tailwind" && <Tailwind />}
+      {cursorOver === "nextjs" && <NextJs />}
+      {cursorOver === "linux" && <Linux />}
+      {cursorOver === "github" && <Github color="white" />}
+      {cursorOver === "mongodb" && <Mongo1 />}
+      {cursorOver === "postgresql" && <Postgres />}
+      {cursorOver === "bootstrap" && <Bootstrap />}
+      {cursorOver === "react" && <React />}
+      {cursorOver === "docker" && <Docker />}
+      {cursorOver === "aws s3" && <Aws />}
+      {cursorOver === "aws ec2" && <Aws />}
+      {cursorOver === "aws rds" && <Aws />}
+      {cursorOver === "postman" && <Postman />}
+      {cursorOver === "sass" && <Sass />}
+      {cursorOver === "express" && <Express />}
+      {cursorOver === "turborepo" && <Turborepo />}
+      {cursorOver === "git" && <Git />}
+      {cursorOver === "mysql" && <MySql />}
+      {cursorOver === "bun" && <Bun />}
+      {cursorOver === "appwrite" && <AppWrite />}
+      {cursorOver === "prisma orm" && <PrismaORM />}
+      {cursorOver === "shadcn" && <ShadCn />}
+      {cursorOver === "vs code" && <VsCode />}
+      {cursorOver === "twilio" && <Twilio />}
+      {cursorOver === "web socket" && <WebSocket />}
+      {cursorOver === "material-ui" && <MaterialUi />}
+      {cursorOver === "cloudinary" && <Cloudinary />}
+      {cursorOver === "radix-ui" && <RadixUi />}
+      {cursorOver === "motion.dev" && <MotionDev />}
     </motion.div>
   );
 };
