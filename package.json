@@ -9,7 +9,10 @@
     "serve": "bunx serve@latest out",
     "lint": "next lint",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "cypress": "cypress open",
+    "cypress:run": "cypress run",
+    "test:e2e": "start-server-and-test dev http://localhost:3000 cypress"
   },
   "dependencies": {
     "@emailjs/browser": "^4.1.0",

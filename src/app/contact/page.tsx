@@ -117,6 +117,7 @@ const ContactPage = () => {
           className="h-fit self-center lg:w-1/2 flex flex-col lg:hidden gap-6 justify-center bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl text-lg p-4 md:py-10 md:px-6 relative shadow-xl"
           ref={formRef}
           onSubmit={sendEmail}
+          data-test="contact-form-mobile"
         >
           <h2 className="text-white text-2xl font-light mb-2 flex items-center  justify-between">
             <span>Get in touch</span>
@@ -131,6 +132,7 @@ const ContactPage = () => {
                   setCopied(false);
                 }, 2000);
               }}
+              data-test="contact-email-copy-button-mobile"
             >
               {copied ? <Checked /> : <Email color="white" />}
             </button>
@@ -143,6 +145,7 @@ const ContactPage = () => {
               placeholder="Your message"
               className="w-full bg-zinc-800/50 rounded-lg border border-zinc-700 text-white outline-none resize-none p-4 focus:border-blue-400 transition-colors"
               required
+              data-test="contact-message-input-mobile"
             />
           </div>
 
@@ -153,6 +156,7 @@ const ContactPage = () => {
               placeholder="Your email"
               className="w-full bg-zinc-800/50 rounded-lg border border-zinc-700 text-white outline-none p-4 focus:border-blue-400 transition-colors"
               required
+              data-test="contact-email-input-mobile"
             />
           </div>
 
