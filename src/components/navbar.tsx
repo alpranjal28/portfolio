@@ -147,7 +147,7 @@ const Navbar = () => {
                 variants={listItemVariants}
                 className=""
                 key={link.title}
-                onClick={() => setTimeout(() => setIsOpen(false), 550)} // Close menu after clicking a link
+                onClick={() => setTimeout(() => setIsOpen(false), 450)} // Close menu after clicking a link
               >
                 <Link href={link.url}>{link.title}</Link>
               </motion.div>

@@ -20,7 +20,7 @@ const TransitionProvider = ({
           className="h-screen w-screen fixed bg-black top-0 rounded-b-[100px] z-40"
           animate={{ height: "0vh" }}
           exit={{ height: "140vh" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         />
         {/* <motion.div
           className="fized m-auto top-0 bottom-0 left-0 right-0 text-white cursor-default text-8xl z-50 w-fit h-fit"
@@ -36,7 +36,7 @@ const TransitionProvider = ({
           initial={{ height: "140vh" }}
           animate={{
             height: "0vh",
-            transition: { delay: 0.5, ease: "easeOut" },
+            transition: { delay: 0.4, ease: "easeOut" },
           }}
         />
         <div className="h-24">
