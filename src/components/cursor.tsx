@@ -16,6 +16,7 @@ import {
   Bun,
   Cloudinary,
   Css3,
+  Cypress,
   Docker,
   Express,
   Git,
@@ -42,6 +43,7 @@ import {
   TypeScript,
   VsCode,
   WebSocket,
+  Zustand,
 } from "./icons";
 import { useCursorStore } from "@/store/cursorStore";
 
@@ -153,6 +155,8 @@ export const Cursor = () => {
       {cursorOver === "cloudinary" && <Cloudinary />}
       {cursorOver === "radix-ui" && <RadixUi />}
       {cursorOver === "motion.dev" && <MotionDev />}
+      {cursorOver === "zustand" && <Zustand />}
+      {cursorOver === "cypress" && <Cypress />} 
     </motion.div>
   );
 };

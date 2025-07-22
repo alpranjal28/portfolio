@@ -36,6 +36,8 @@ export const skills = [
   { title: "Material-UI", type: "library" },
   { title: "Radix-UI", type: "library" },
   { title: "Motion.dev", type: "library" },
+  { title: "Zustand", type: "library" },
+  { title: "Cypress", type: "library" },
 
   // Tools
   { title: "Git", type: "tools" },
