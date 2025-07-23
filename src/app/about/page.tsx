@@ -52,18 +52,20 @@ const AboutPage = () => {
               began my journey exploring the intersection of science and
               technology. Driven by a love for analytical problem-solving, I
               transitioned into full-stack web development—where creativity
-              meets logic. Over the past year, I&apos;ve built and deployed multiple
-              real-world applications, working extensively with TypeScript,
-              Next.js, React, Node.js, Express, PostgreSQL, MongoDB, Tailwind
-              CSS, WebSocket, and AWS. <br /> <br /> From a real-time drawing tool (Draw.app)
+              meets logic. Over the past year, I&apos;ve built and deployed
+              multiple real-world applications, working extensively with
+              TypeScript, Next.js, React, Node.js, Express, PostgreSQL, MongoDB,
+              Tailwind CSS, WebSocket, and AWS. <br /> <br />{" "}
+              &nbsp;&nbsp;&nbsp;&nbsp; From a real-time drawing tool (Draw.app)
               and inventory dashboards to appointment systems and e-commerce
               flows, I&apos;ve independently handled both front-end and back-end
               responsibilities—designing responsive interfaces, building REST
-              and WebSocket APIs, and managing cloud infrastructure. <br /> <br /> This
-              journey from biotech to tech reflects my passion for continuous
-              learning, system design, and building solutions that make an
-              impact. I&apos;m excited to keep evolving and contributing to
-              meaningful projects in the ever-growing world of web development.
+              and WebSocket APIs, and managing cloud infrastructure. <br />{" "}
+              <br /> &nbsp;&nbsp;&nbsp;&nbsp; This journey from biotech to tech
+              reflects my passion for continuous learning, system design, and
+              building solutions that make an impact. I&apos;m excited to keep
+              evolving and contributing to meaningful projects in the
+              ever-growing world of web development.
             </p>
             {/* BIOGRAPHY QUOTE  */}
             <span className=" italic">
