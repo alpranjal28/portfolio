@@ -43,7 +43,7 @@ const AboutPage = () => {
         {/* TEXT CONTAINER */}
         <div className="p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0 xl:w-1/2 snap-y snap-mandatory">
           {/* BIOGRAPHY CONTAINER */}
-          <div className="flex flex-col gap-12 justify-center min-h-[calc(100vh-6rem)] snap-start">
+          <div className="flex flex-col gap-12 justify-start min-h-[calc(100vh-6rem)] snap-start">
             {/* BIOGRAPHY TITLE */}
             <h1 className="top-0 font-bold text-2xl lg:text-3xl">BIOGRAPHY</h1>
             {/* BIOGRAPHY DESCRIPTION */}
@@ -98,7 +98,7 @@ const AboutPage = () => {
 
           {/* SKILLS CONTAINER */}
           <div
-            className="flex flex-col gap-12 justify-center snap-start"
+            className="flex flex-col gap-12 justify-start snap-start"
             ref={skillRef}
           >
             {/* SKILL TITLE  */}
@@ -171,7 +171,7 @@ const AboutPage = () => {
 
           {/* EXPERIENCE CONTAINER */}
           <div
-            className="flex flex-col gap-12 justify-center h-[calc(100vh-6rem)] snap-start"
+            className="flex flex-col gap-12 justify-start min-h-[calc(100vh-6rem)] snap-start"
             ref={experienceRef}
           >
             {/* EXPERIENCE TITLE  */}
