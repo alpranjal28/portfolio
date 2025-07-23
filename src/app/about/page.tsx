@@ -45,25 +45,25 @@ const AboutPage = () => {
           {/* BIOGRAPHY CONTAINER */}
           <div className="flex flex-col gap-12 justify-center min-h-[calc(100vh-6rem)] snap-start">
             {/* BIOGRAPHY TITLE */}
-            <h1 className=" font-bold text-2xl">BIOGRAPHY</h1>
+            <h1 className="top-0 font-bold text-2xl lg:text-3xl">BIOGRAPHY</h1>
             {/* BIOGRAPHY DESCRIPTION */}
-            <p className="text-lg">
-              &nbsp;&nbsp;&nbsp;&nbsp; With an M.Sc. in Plant Biotechnology,
-              I&apos;ve explored the intricacies of plant genetics to enhance
-              sustainable agriculture. Venturing into Full Stack Web
-              Development, I mastered HTML, CSS, JavaScript, Node.js, and
-              MongoDB, blending analytical thinking from my scientific
-              background with creative problem-solving.
-              <br />
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp; Transitioning into the dynamic field of
-              web development, I&apos;m excited to contribute my diverse skills
-              to innovative projects. My biography encapsulates a journey from
-              plant biotechnology to full stack web development, reflecting a
-              passion for continuous learning and a commitment to making
-              meaningful contributions to evolving landscapes. Let&apos;s
-              connect and explore opportunities to collaborate in this exciting
-              realm.
+            <p className="text-lg lg:text-xl">
+              &nbsp;&nbsp;&nbsp;&nbsp; With an M.Sc. in Plant Biotechnology, I
+              began my journey exploring the intersection of science and
+              technology. Driven by a love for analytical problem-solving, I
+              transitioned into full-stack web development—where creativity
+              meets logic. Over the past year, I&apos;ve built and deployed multiple
+              real-world applications, working extensively with TypeScript,
+              Next.js, React, Node.js, Express, PostgreSQL, MongoDB, Tailwind
+              CSS, WebSocket, and AWS. <br /> <br /> From a real-time drawing tool (Draw.app)
+              and inventory dashboards to appointment systems and e-commerce
+              flows, I&apos;ve independently handled both front-end and back-end
+              responsibilities—designing responsive interfaces, building REST
+              and WebSocket APIs, and managing cloud infrastructure. <br /> <br /> This
+              journey from biotech to tech reflects my passion for continuous
+              learning, system design, and building solutions that make an
+              impact. I&apos;m excited to keep evolving and contributing to
+              meaningful projects in the ever-growing world of web development.
             </p>
             {/* BIOGRAPHY QUOTE  */}
             <span className=" italic">
@@ -104,7 +104,7 @@ const AboutPage = () => {
               initial={{ x: "-100vw" }}
               animate={isSkillRefInView ? { x: 0 } : {}}
               // transition={{ delay: 0.2, duration: 0.4 }}
-              className="font-bold text-2xl"
+              className="font-bold text-2xl lg:text-3xl"
             >
               SKILLS
             </motion.h2>
@@ -113,7 +113,7 @@ const AboutPage = () => {
             <motion.div
               initial={{ x: "-100vw" }}
               animate={isSkillRefInView ? { x: 0 } : {}}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:text-2xl"
             >
               {/* Group skills by type */}
               {Object.entries(
@@ -123,14 +123,14 @@ const AboutPage = () => {
                 }, {})
               ).map(([type, skillsOfType]) => (
                 <div key={type} className="mb-4">
-                  <h3 className="text-lg font-medium mb-2 capitalize">
+                  <h3 className="text-lg lg:text-xl font-medium mb-2 capitalize">
                     {type}
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {skillsOfType.map((skill: Skill) => (
                       <button
                         key={skill.title}
-                        className="rounded px-4 py-2 text-sm cursor-pointer bg-black text-white hover:bg-gray-700 transition-colors flex items-center gap-1"
+                        className="rounded px-4 py-2 text-sm lg:text-base cursor-pointer bg-black text-white hover:bg-gray-700 transition-colors flex items-center gap-1"
                         about={skill.title}
                       >
                         <span className="w-2 h-2 rounded-full bg-red-400"></span>
@@ -177,7 +177,7 @@ const AboutPage = () => {
               initial={{ x: "-100vw" }}
               animate={isExperienceRefInView ? { x: 0 } : {}}
               // transition={{ delay: 0.2, duration: 0.4 }}
-              className="font-bold text-2xl"
+              className="font-bold text-2xl lg:text-3xl"
             >
               EXPERIENCES SO FAR
             </motion.h2>
@@ -199,7 +199,7 @@ const AboutPage = () => {
                       Building projects
                     </div>
                     {/* JOB DESCRIPTION */}
-                    <div className="p-3 text-sm italic">
+                    <div className="p-3 text-sm lg:text-base italic">
                       Aspiring to find a job in IT
                     </div>
                     {/* JOB DATE */}
@@ -240,7 +240,7 @@ const AboutPage = () => {
                       Web Developer
                     </div>
                     {/* JOB DESCRIPTION */}
-                    <div className="p-3 text-sm italic">
+                    <div className="p-3 text-sm lg:text-base italic">
                       Aspiring to find a job in Web Dev
                     </div>
                     {/* JOB DATE */}
@@ -261,7 +261,7 @@ const AboutPage = () => {
                       Delta 2.0 by Apna College
                     </div>
                     {/* JOB DESCRIPTION */}
-                    <div className="p-3 text-sm italic">
+                    <div className="p-3 text-sm lg:text-base italic">
                       Aspiring to find a job in Web Dev
                     </div>
                     {/* JOB DATE */}
