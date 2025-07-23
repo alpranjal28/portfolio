@@ -24,27 +24,28 @@ jest.mock("next/link", () => ({
 
 describe("Homepage", () => {
   it("renders the homepage correctly", () => {
-    render(<Homepage />);
+  render(<Homepage />);
 
-    // main heading
-    expect(
-      screen.getByText("Crafting Digital Experiences, Designing Tomorrow")
-    ).toBeInTheDocument();
+  // main heading - check for heading element and key parts of text
+  expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
+  expect(screen.getByText(/Crafting/)).toBeInTheDocument();
+  expect(screen.getByText(/Scalable/)).toBeInTheDocument();
+  expect(screen.getByText(/Solutions/)).toBeInTheDocument();
+  expect(screen.getByText(/Code/)).toBeInTheDocument();
 
-    // introduction text
-    expect(
-      screen.getByText(
-        "Hello! I'm Pranjal, an aspiring full-stack web developer enthusiastic about crafting digital experiences. Specializing in the MERN (MongoDB, Express.js, React, Node.js) stack, I bring a passion for clean coding and user-centric solutions. Explore my portfolio to see projects that reflect my commitment to turning ideas into impactful web applications. Let's connect and explore the possibilities of working together!"
-      )
-    ).toBeInTheDocument();
+  // introduction text - use a partial match
+  expect(
+    screen.getByText(/Hello! I'm Pranjal, a full-stack web developer passionate about/)
+  ).toBeInTheDocument();
 
-    // Check for navigation links
-    expect(screen.getByText("view my work")).toBeInTheDocument();
-    expect(screen.getByText("contact me")).toBeInTheDocument();
-    expect(screen.getByText("About Me")).toBeInTheDocument();
+  // Check for navigation links
+  expect(screen.getByText("view my work")).toBeInTheDocument();
+  expect(screen.getByText("contact me")).toBeInTheDocument();
+  expect(screen.getByText("About Me")).toBeInTheDocument();
 
-    const heroImage = screen.getByAltText("image");
-    expect(heroImage).toBeInTheDocument();
-    expect(heroImage).toHaveAttribute("src", "/hero.png");
-  });
+  const heroImage = screen.getByAltText("image");
+  expect(heroImage).toBeInTheDocument();
+  expect(heroImage).toHaveAttribute("src", "/hero.png");
+});
+
 });

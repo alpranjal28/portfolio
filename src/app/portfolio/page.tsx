@@ -104,13 +104,16 @@ const PortfolioPage = () => {
                       <Image
                         src={item.img}
                         alt={item.title}
+                        loading="eager"
+                        placeholder="blur"
+                        blurDataURL={item.img}
                         fill
                         className="object-contain"
                       />
                     </div>
                   </div>
                   <div className="py-8 lg:px-8">
-                    <p className="text-wrap w-80 md:w-96 lg:w-[500px] lg:text-lg  xl:w-[600px] max-w-[600px]">
+                    <p className="text-wrap w-80 md:w-96 lg:w-[500px] lg:text-xl xl:w-[600px] max-w-[600px]">
                       {item.desc}
                     </p>
                     <div className="flex justify-end lg:justify-start ">

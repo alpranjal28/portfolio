@@ -102,7 +102,7 @@ export const Cursor = () => {
     return () => {
       window.removeEventListener("mousemove", mousemove);
     };
-  }, []);
+  }, [setPosition, setShowCursor, setCursorOver]);
 
   if (!showCursor) return null;
 
